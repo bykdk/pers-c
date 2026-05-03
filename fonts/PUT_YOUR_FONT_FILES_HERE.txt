@@ -1,4 +1,0 @@
-Put these exact files here for GitHub Pages:
-TT Autonomous Trial Light.ttf
-TT Autonomous Trial Medium.ttf
-TT Autonomous Trial Bold.ttf
