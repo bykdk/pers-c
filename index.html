@@ -1,0 +1,2335 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0e1830">
+<title>Personal Concentrate — Ончейн-аналитика для дисциплинированного капитала</title>
+<meta name="description" content="Personal Concentrate — приватная ончейн-аналитика крипторынка. Разборы проектов, рыночные метрики и закрытое сообщество для тех, кто принимает решения по данным.">
+<meta name="keywords" content="ончейн аналитика, крипторынок, биткоин, эфир, разбор проектов, частное сообщество">
+<meta name="author" content="Personal Concentrate">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://personalconcentrate.com/">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon.png">
+<link rel="shortcut icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+<link rel="preload" as="image" href="assets/coin-circle.webp" fetchpriority="high">
+<link rel="preload" as="font" type="font/ttf" href="fonts/TT Autonomous Trial Variable.ttf" crossorigin media="(min-width:760px)">
+<link rel="preconnect" href="https://ru.tradingview.com" crossorigin>
+<link rel="dns-prefetch" href="https://t.me">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Personal Concentrate">
+<meta property="og:title" content="Personal Concentrate — Ончейн-аналитика">
+<meta property="og:description" content="Аналитические отчёты, разборы проектов и приватное сообщество для тех, кто принимает решения по данным.">
+<meta property="og:url" content="https://personalconcentrate.com/">
+<meta property="og:image" content="assets/hero-bg.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Personal Concentrate — Ончейн-аналитика">
+<meta name="twitter:description" content="Приватная аналитика крипторынка. Решения по данным, а не по «сигналам».">
+<meta name="twitter:image" content="assets/hero-bg.webp">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://personalconcentrate.com/#org","name":"Personal Concentrate","url":"https://personalconcentrate.com/","logo":"https://personalconcentrate.com/assets/favicon.png","email":"personal.concentrate@gmail.com","description":"Ончейн-аналитика крипторынка и приватное сообщество для дисциплинированного капитала.","sameAs":["https://t.me/PersonalConcentrate","https://www.tiktok.com/@personalconcentrat","https://youtube.com/channel/UC2OUHfGPCu87pEEWit9KPLA","https://ru.tradingview.com/u/PersonalConcentrat/"]},{"@type":"Service","@id":"https://personalconcentrate.com/#service","name":"Personal Concentrate — приватная ончейн-аналитика","provider":{"@id":"https://personalconcentrate.com/#org"},"areaServed":"Worldwide","serviceType":"Аналитика и образование в сфере криптовалют","offers":[{"@type":"Offer","name":"Base","price":"79","priceCurrency":"USD"},{"@type":"Offer","name":"Pro","price":"149","priceCurrency":"USD"},{"@type":"Offer","name":"Elite","price":"279","priceCurrency":"USD"},{"@type":"Offer","name":"Обучение","price":"499","priceCurrency":"USD"}]}]}
+</script>
+<style>
+/* TT Autonomous (Trial) — used as a display/accent face on headings, numbers, eyebrows.
+   Body copy stays on Inter for readability + Cyrillic coverage.
+   NB: Trial files are non-commercial — purchase a TypeType license before production launch. */
+@font-face{font-family:'TTA';src:url('fonts/TT Autonomous Trial ExtraLight.ttf') format('truetype');font-weight:200;font-style:normal;font-display:swap}
+@font-face{font-family:'TTA';src:url('fonts/TT Autonomous Trial Variable.ttf') format('truetype-variations');font-weight:300 700;font-style:normal;font-display:swap}
+@font-face{font-family:'TTA';src:url('fonts/TT Autonomous Trial ExtraLight Italic.ttf') format('truetype');font-weight:200;font-style:italic;font-display:swap}
+@font-face{font-family:'TTA';src:url('fonts/TT Autonomous Trial Italic.ttf') format('truetype');font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:'TTA';src:url('fonts/TT Autonomous Trial Light Italic.ttf') format('truetype');font-weight:300;font-style:italic;font-display:swap}
+@font-face{font-family:'TTA';src:url('fonts/TT Autonomous Trial ExtraBold Italic.ttf') format('truetype');font-weight:700 800;font-style:italic;font-display:swap}
+@font-face{font-family:'TTA Mono';src:url('fonts/TT Autonomous Mono Trial Variable Roman.ttf') format('truetype-variations');font-weight:300 700;font-style:normal;font-display:swap}
+@font-face{font-family:'TTA Outline';src:url('fonts/TT Autonomous ExtraBold Outline Trial.ttf') format('truetype');font-weight:800;font-style:normal;font-display:swap}
+
+:root{
+  --bg:#0e1830; --bg-soft:#15213e; --panel:#1a2848; --panel-2:#213056; --panel-3:#293a68;
+  --line:rgba(255,212,122,0.14); --line-strong:rgba(255,212,122,0.28);
+  --gold:#f0bc56; --gold-2:#ffd47a; --gold-3:#fff5d4; --gold-deep:#c98e3a; --gold-fade:rgba(240,188,86,0.18);
+  --copper:#e08850; --copper-fade:rgba(224,136,80,0.18);
+  --steel:#5d8cc4; --steel-fade:rgba(93,140,196,0.20);
+  --ice:#9cc4f0; --ice-fade:rgba(156,196,240,0.18);
+  --text:#f0f4ff; --muted:#b8c4d8; --muted-2:#7c8ba6;
+  --green:#7df0a7; --green-fade:rgba(125,240,167,0.14);
+  --shadow:0 22px 60px rgba(0,0,0,0.50); --shadow-gold:0 22px 70px rgba(240,188,86,0.26);
+  --radius:24px; --radius-sm:18px; --max:1240px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter','SF Pro Display',-apple-system,BlinkMacSystemFont,"Segoe UI Variable Display","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-feature-settings:"ss01" 1,"cv11" 1,"calt" 1;
+  background:
+    radial-gradient(ellipse 90% 60% at 50% 0%,rgba(156,196,240,0.12),transparent 60%),
+    radial-gradient(ellipse 70% 40% at 80% 100%,rgba(240,188,86,0.06),transparent 60%),
+    linear-gradient(135deg,#0e1830 0%,#152340 35%,#0c1832 70%,#0a1228 100%);
+  color:var(--text);min-height:100vh;overflow-x:hidden;
+  font-weight:400;line-height:1.55;-webkit-font-smoothing:antialiased;
+  position:relative;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(rgba(255,212,122,0.05) 1px,transparent 1px);
+  background-size:54px 54px;
+  opacity:.5;
+}
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(circle at 20% 25%,rgba(255,255,255,.5) 0,rgba(255,255,255,0) 0.12%),
+    radial-gradient(circle at 75% 18%,rgba(255,255,255,.45) 0,rgba(255,255,255,0) 0.10%),
+    radial-gradient(circle at 38% 62%,rgba(240,188,86,.55) 0,rgba(240,188,86,0) 0.10%),
+    radial-gradient(circle at 88% 48%,rgba(156,196,240,.55) 0,rgba(156,196,240,0) 0.10%),
+    radial-gradient(circle at 12% 78%,rgba(255,255,255,.40) 0,rgba(255,255,255,0) 0.10%),
+    radial-gradient(circle at 60% 88%,rgba(255,255,255,.35) 0,rgba(255,255,255,0) 0.08%);
+  opacity:.6;
+}
+
+/* ===== Drifting bokeh — navy + gold + steel ===== */
+.bg-glow-layer{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.bg-glow{position:absolute;border-radius:50%;filter:blur(70px);will-change:transform;contain:layout paint style}
+.bg-glow-1{width:600px;height:600px;background:radial-gradient(circle,rgba(255,212,122,0.50),transparent 70%);top:-180px;left:-160px;animation:bgFloatA 32s ease-in-out infinite}
+.bg-glow-2{width:520px;height:520px;background:radial-gradient(circle,rgba(93,140,196,0.55),transparent 70%);top:18%;right:-180px;animation:bgFloatB 38s ease-in-out infinite}
+.bg-glow-3{width:680px;height:680px;background:radial-gradient(circle,rgba(156,196,240,0.32),transparent 70%);bottom:-220px;left:25%;animation:bgFloatC 42s ease-in-out infinite}
+.bg-glow-4{width:420px;height:420px;background:radial-gradient(circle,rgba(255,212,122,0.38),transparent 70%);top:55%;left:-120px;animation:bgFloatD 30s ease-in-out infinite}
+.bg-glow-5{width:380px;height:380px;background:radial-gradient(circle,rgba(125,240,167,0.20),transparent 70%);top:8%;left:48%;animation:bgFloatE 36s ease-in-out infinite}
+.bg-glow-6{width:480px;height:480px;background:radial-gradient(circle,rgba(93,140,196,0.40),transparent 70%);top:75%;right:8%;animation:bgFloatF 40s ease-in-out infinite}
+@keyframes bgFloatA{0%,100%{transform:translate(0,0)}33%{transform:translate(70px,50px)}66%{transform:translate(-20px,90px)}}
+@keyframes bgFloatB{0%,100%{transform:translate(0,0)}50%{transform:translate(-90px,-60px)}}
+@keyframes bgFloatC{0%,100%{transform:translate(0,0)}50%{transform:translate(70px,-90px)}}
+@keyframes bgFloatD{0%,100%{transform:translate(0,0)}50%{transform:translate(60px,80px)}}
+@keyframes bgFloatE{0%,100%{transform:translate(0,0)}50%{transform:translate(-80px,30px)}}
+@keyframes bgFloatF{0%,100%{transform:translate(0,0)}50%{transform:translate(-50px,-80px)}}
+
+/* ===== Blockchain network mesh ===== */
+.bg-mesh{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.65}
+.mesh-lines line{
+  stroke:rgba(255,212,122,0.22);stroke-width:1;fill:none;
+  stroke-dasharray:5 9;
+  animation:meshFlow 16s linear infinite;
+}
+.mesh-lines line:nth-child(2n){animation-direction:reverse;animation-duration:22s}
+.mesh-lines line:nth-child(3n){animation-duration:18s}
+@keyframes meshFlow{from{stroke-dashoffset:0}to{stroke-dashoffset:-140}}
+.mesh-nodes circle{
+  fill:#ffd47a;
+  filter:drop-shadow(0 0 5px rgba(255,212,122,.85));
+  animation:nodePulse 3.5s ease-in-out infinite;
+}
+.mesh-nodes circle:nth-child(1) {animation-delay:0s}
+.mesh-nodes circle:nth-child(2) {animation-delay:.4s}
+.mesh-nodes circle:nth-child(3) {animation-delay:.8s}
+.mesh-nodes circle:nth-child(4) {animation-delay:1.2s}
+.mesh-nodes circle:nth-child(5) {animation-delay:1.6s}
+.mesh-nodes circle:nth-child(6) {animation-delay:2s}
+.mesh-nodes circle:nth-child(7) {animation-delay:.2s}
+.mesh-nodes circle:nth-child(8) {animation-delay:.6s}
+.mesh-nodes circle:nth-child(9) {animation-delay:1s}
+.mesh-nodes circle:nth-child(10){animation-delay:1.4s}
+.mesh-nodes circle:nth-child(11){animation-delay:1.8s}
+.mesh-nodes circle:nth-child(12){animation-delay:.5s}
+@keyframes nodePulse{0%,100%{opacity:.35}50%{opacity:1}}
+
+/* ===== Floating crypto data fragments ===== */
+.bg-data{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.bg-frag{
+  position:absolute;
+  font-family:ui-monospace,'JetBrains Mono','SF Mono',Menlo,Consolas,monospace;
+  font-size:12px;letter-spacing:.08em;font-weight:500;
+  color:rgba(255,212,122,.42);
+  text-shadow:0 0 14px rgba(240,188,86,.4);
+  white-space:nowrap;
+  animation:fragDrift 24s linear infinite;
+  will-change:transform,opacity;
+}
+.bg-frag b{color:rgba(255,242,212,.72);font-weight:700}
+.bg-frag i{font-style:normal;color:rgba(125,240,167,.65)}
+.bg-frag-1{top:13%;left:5%;animation-delay:0s;animation-duration:26s}
+.bg-frag-2{top:28%;right:8%;animation-delay:-5s;animation-duration:30s}
+.bg-frag-3{top:54%;left:6%;animation-delay:-9s;animation-duration:28s}
+.bg-frag-4{bottom:18%;right:12%;animation-delay:-13s;animation-duration:26s}
+.bg-frag-5{top:70%;left:46%;animation-delay:-17s;animation-duration:32s}
+.bg-frag-6{top:8%;right:30%;animation-delay:-21s;animation-duration:34s}
+@keyframes fragDrift{
+  0%{transform:translateY(0);opacity:0}
+  10%{opacity:1}
+  90%{opacity:1}
+  100%{transform:translateY(-90px);opacity:0}
+}
+
+/* ===== Performance: trim heavy bg fx on small screens ===== */
+@media(max-width:1024px){
+  .bg-mesh{display:none}
+  .bg-frag-3,.bg-frag-4,.bg-frag-5,.bg-frag-6{display:none}
+  .bg-glow-5,.bg-glow-6{display:none}
+}
+@media(max-width:760px){
+  .bg-frag{display:none}
+  .bg-glow-3,.bg-glow-4{display:none}
+  .bg-glow{filter:blur(40px);animation:none !important}
+  .coin-glow{filter:blur(22px);animation:none !important;width:120%;height:120%}
+  .coin{animation:none !important}
+  .coin-fire-outer{display:none !important}
+  .coin-ring{animation-duration:30s}
+  body::before{display:none}
+  .pc-marquee-track{animation-duration:60s}
+  .pc-reveal{opacity:1 !important;transform:none !important}
+  /* Tighter mobile typography — TT Autonomous Light is too airy on small screens */
+  .hero-title{font-size:clamp(26px,7vw,34px) !important;line-height:1.12;letter-spacing:-.02em;max-width:100%}
+  .hero-subtitle{font-size:15px}
+  .hero-kicker{font-size:11px;letter-spacing:.10em}
+  .hero-eyebrow{font-size:10.5px;letter-spacing:.16em}
+  .section-title{font-size:clamp(20px,5.4vw,26px) !important;line-height:1.18;letter-spacing:-.015em}
+  .hero-stats{padding:14px}
+  .hero-stat-num{font-size:20px}
+  .plan-price{font-size:30px}
+  .calc-total-val{font-size:22px}
+  .honest-num{font-size:21px}
+  .trust-cell-num{font-size:20px}
+  .method-num{font-size:26px}
+  .how-num{font-size:36px}
+  .edu-title{font-size:20px}
+  .edu-price{font-size:28px}
+  .tl-foot-num{font-size:16px}
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+
+/* ===== Focus accessibility ===== */
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+.btn-primary:focus-visible,.btn-secondary:focus-visible,.nav-cta:focus-visible,.plan-btn:focus-visible,.report-lock-cta:focus-visible{outline-offset:4px}
+.faq-item summary:focus-visible,.project-row:focus-visible,.proof-card:focus-visible,.calc-preset:focus-visible,.social-btn:focus-visible{outline-offset:2px}
+.calc-input:focus-visible{outline:none}
+.project-row{outline-offset:0}
+
+.skip-link{position:absolute;top:-100px;left:0;padding:10px 18px;background:var(--gold);color:#0a0a0a;font-weight:600;z-index:1000;border-radius:0 0 8px 0;transition:top .15s ease}
+.skip-link:focus{top:0;outline:2px solid var(--gold-3);outline-offset:2px}
+
+.container{max-width:var(--max);margin:0 auto;padding:0 28px;position:relative}
+.page-content{position:relative;z-index:2}
+.section{padding:80px 0;position:relative}
+.section-shell{
+  background:linear-gradient(180deg,rgba(18,28,52,0.88),rgba(12,20,42,0.85));
+  border:1px solid var(--line);border-radius:var(--radius);padding:48px;
+  box-shadow:var(--shadow);
+  contain:layout style;
+}
+.section-shell.gold{
+  background:
+    linear-gradient(135deg,rgba(240,188,86,0.10),rgba(93,140,196,0.06)),
+    linear-gradient(180deg,rgba(18,28,52,0.88),rgba(12,20,42,0.85));
+  border-color:var(--gold-fade);
+}
+@media(max-width:760px){
+  .section{padding:50px 0}
+  .container{padding:0 18px}
+  .section-shell{padding:28px 22px}
+  /* defensive text wrap on mobile */
+  .proj-name,.proj-meta,.proj-logic,.proj-tag,.proj-step-val,
+  .plan-feature,.plan-name,.plan-period,
+  .anti-item,.anti-head,
+  .faq-q,.faq-a,
+  .guarantee-text,.risk-list li,
+  .edu-title,.edu-desc,.edu-tag,
+  .how-title,.how-desc,
+  .method-name,.method-desc,
+  .proof-text,.proof-title,
+  .insight-title,
+  .voice-quote,.voice-name,.voice-meta,
+  .report-title,.report-body,.report-kpi-label,.report-kpi-trend,.report-lock-text,
+  .trust-cell-desc,.trust-cell-label,
+  .about-name,.about-role,.about-manifesto,.about-stat-name,
+  .footer-desc,.footer-mail,
+  .hero-subtitle,.hero-pill,.hero-stat-label,
+  .section-sub,.section-title,
+  .summary-row .sum-label,.summary-row .sum-val,
+  .tv-name,.tv-sub,
+  .proj-step-label,.proj-pct-label
+  {overflow-wrap:break-word;word-wrap:break-word;hyphens:auto}
+  .proj-step-val,.report-kpi-val,.about-stat-val,.sum-val,
+  .hero-stat-num,.proj-pct,.plan-price,.edu-price,.metric-box strong{
+    overflow-wrap:normal;word-break:normal;
+  }
+}
+.section-header{margin-bottom:32px}
+.section-eyebrow{font-family:'TTA Mono',ui-monospace,'JetBrains Mono','SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-2);font-weight:500;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.section-title{font-family:'TTA','Inter','SF Pro Display',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:clamp(22px,2.8vw,34px);font-weight:400;line-height:1.15;margin-bottom:14px;letter-spacing:-0.020em;color:var(--text)}
+.section-title em{font-family:'TTA',serif;color:var(--gold-2);font-style:italic;font-weight:400;background:linear-gradient(135deg,var(--gold-2),var(--copper));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-.005em}
+.section-sub{font-size:15px;color:var(--muted);max-width:680px;line-height:1.65}
+.eb-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,var(--gold-2),var(--copper));box-shadow:0 0 10px rgba(240,188,86,.6);animation:pcEbPulse 2.4s ease-in-out infinite}
+
+/* ===== Display & numeric typography (TT Autonomous) ===== */
+.hero-stat-num,.hero-stat-label,
+.trust-cell-num,.trust-cell-label,
+.tl-foot-num,.tl-foot-lbl,.tl-mini-result,.tl-mini-price,.tl-asset,.tl-date,.tl-eyebrow,.tl-link,
+.proj-pct,.proj-pct-label,.proj-step-val,.proj-step-label,.proj-meta,
+.report-kpi-val,.report-kpi-label,.report-kpi-trend,.report-tag,.report-action,.report-chart-label,
+.honest-num,.honest-label,
+.sum-val,.sum-label,
+.about-stat-val,.about-stat-name,.about-role,
+.calc-eyebrow,.calc-prefix,.calc-input,.calc-row-val,.calc-row-meta,.calc-total-val,.calc-total-label,.calc-preset,.calc-label,
+.method-num,.how-num,
+.hero-pill,.proj-tag,
+.tv-name,.tv-sub,
+.anti-head,.ba-tag,.ba-arrow-label,
+.plan-name,.plan-period,.plan-badge,.edu-tag,.edu-price,.edu-price-label,
+.faq-q,
+.risk-title,
+.voice-tier,.voice-result,.voice-meta,
+.metric-box strong,.metric-box span,.insight-label,
+.pc-marquee-item,.pc-marquee-strong,
+.bg-frag,
+.guarantee-text em{
+  font-family:'TTA Mono',ui-monospace,'JetBrains Mono','SF Mono',Menlo,Consolas,monospace;
+  font-feature-settings:"tnum" 1,"lnum" 1;
+}
+.hero-stat-num,.trust-cell-num,.tl-foot-num,.tl-mini-result,.proj-pct,.report-kpi-val,.honest-num,.sum-val,.about-stat-val,.calc-total-val,.calc-row-val,.edu-price,.metric-box strong,.plan-price{font-weight:600}
+.hero-stat-num,.honest-num,.calc-total-val,.tl-mini-result,.edu-price,.plan-price{font-weight:700}
+
+/* Headings + cards titles → TT Autonomous (variable) */
+.about-name,.proj-name,.method-name,.how-title,.plan-tagline,.tl-title,.calc-title,.report-title,.guarantee-title,.edu-title,.insight-title,.ba-title,.proof-title,.faq-q{
+  font-family:'TTA','Inter','SF Pro Display',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-weight:400;letter-spacing:-.005em;
+}
+.plan-price{font-family:'TTA Mono',ui-monospace,monospace}
+
+/* Outline accent for one wow-element */
+.hero-kicker{
+  font-family:'TTA',serif;
+}
+@keyframes pcEbPulse{0%,100%{box-shadow:0 0 8px rgba(240,188,86,.5);transform:scale(1)}50%{box-shadow:0 0 14px rgba(240,188,86,.9);transform:scale(1.15)}}
+
+/* ===== Topbar / nav ===== */
+.topbar{position:sticky;top:0;z-index:50;backdrop-filter:blur(18px) saturate(1.2);-webkit-backdrop-filter:blur(18px) saturate(1.2);background:rgba(14,24,48,0.72);border-bottom:1px solid var(--line);transition:background .3s ease,border-color .3s ease,box-shadow .3s ease}
+.topbar.scrolled{background:rgba(14,24,48,0.88);border-bottom-color:var(--line-strong);box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.topbar nav{max-width:var(--max);margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nav-logo{display:flex;align-items:center;gap:12px;font-size:18px;letter-spacing:.005em;flex-shrink:0}
+.logo-mark{width:42px;height:42px;flex-shrink:0;object-fit:contain;filter:drop-shadow(0 2px 6px rgba(0,0,0,.5)) drop-shadow(0 0 14px rgba(240,188,86,.45));transition:transform .3s ease,filter .3s ease}
+.nav-logo:hover .logo-mark{transform:rotate(-6deg) scale(1.05);filter:drop-shadow(0 2px 8px rgba(0,0,0,.55)) drop-shadow(0 0 22px rgba(255,212,122,.6))}
+.nav-logo-text{font-family:'TTA','Inter','SF Pro Display',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-weight:200;color:var(--text);letter-spacing:.04em;font-size:18px;text-transform:uppercase;line-height:1}
+.nav-logo-text strong{font-weight:500;color:var(--gold-2)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-family:'TTA','Inter','SF Pro Display',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:14px;font-weight:200;color:var(--muted);transition:color .2s ease;position:relative;padding:6px 0;white-space:nowrap;letter-spacing:.10em;text-transform:uppercase}
+.nav-links a:hover,.nav-links a.active{color:var(--text)}
+.nav-links a.active::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:linear-gradient(90deg,var(--gold-2),var(--copper))}
+.nav-cta{font-family:'TTA Mono',ui-monospace,'JetBrains Mono','SF Mono',Menlo,monospace;padding:10px 20px;border:1px solid var(--gold-fade);border-radius:999px;font-size:12px;color:var(--gold-2);font-weight:500;letter-spacing:.10em;text-transform:uppercase;background:linear-gradient(180deg,rgba(240,188,86,.10),rgba(240,188,86,.03));transition:background .25s ease,border-color .25s ease,color .25s ease,transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s ease;flex-shrink:0;position:relative;overflow:hidden}
+.nav-cta::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(255,212,122,.18),transparent 70%);opacity:0;transition:opacity .25s ease;pointer-events:none}
+.nav-cta:hover{background:linear-gradient(180deg,rgba(240,188,86,.22),rgba(240,188,86,.08));border-color:var(--gold);color:var(--gold-3);transform:translateY(-1px);box-shadow:0 8px 24px rgba(240,188,86,.22)}
+.nav-cta:hover::before{opacity:1}
+.nav-cta:active{transform:translateY(0)}
+@media(max-width:900px){
+  .nav-links{gap:14px}
+  .nav-links a{font-size:13px}
+  .nav-cta{padding:9px 16px;font-size:12px}
+  .nav-logo-text{font-size:14px}
+  .topbar nav{padding:14px 18px;gap:12px}
+}
+
+/* ===== Mobile burger ===== */
+.nav-burger{display:none;width:42px;height:42px;border:1px solid var(--line-strong);border-radius:12px;align-items:center;justify-content:center;flex-direction:column;gap:5px;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01));transition:border-color .2s ease,background .2s ease;flex-shrink:0}
+.nav-burger:hover{border-color:var(--gold-fade)}
+.nav-burger span{display:block;width:18px;height:1.5px;background:var(--gold-2);border-radius:2px;transition:transform .25s ease,opacity .2s ease}
+.nav-burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.nav-burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.nav-burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+@media(max-width:760px){
+  .nav-burger{display:flex}
+  .nav-links{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;padding:8px 18px 18px;background:rgba(14,24,48,0.96);backdrop-filter:blur(18px) saturate(1.2);-webkit-backdrop-filter:blur(18px) saturate(1.2);border-bottom:1px solid var(--line);max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.2,.7,.2,1),padding .25s ease;box-shadow:0 16px 40px rgba(0,0,0,.45)}
+  .nav-links.open{max-height:340px}
+  .nav-links a{padding:14px 4px;font-size:15px;border-bottom:1px solid var(--line);color:var(--text)}
+  .nav-links a:last-child{border-bottom:none}
+  .nav-links a.active::after{display:none}
+  .nav-links a.active{color:var(--gold-2)}
+  .topbar{position:sticky}
+  .topbar nav{position:relative}
+  .nav-cta{display:none}
+}
+@media(max-width:560px){
+  .nav-logo-text{display:none}
+}
+
+/* ===== Hero ===== */
+.hero{padding:60px 0 40px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.hero-eyebrow{font-family:'TTA Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-2);font-weight:500;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.hero-eyebrow::before{content:"";width:32px;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+.hero-kicker{font-family:'TTA',serif;font-size:13px;letter-spacing:.06em;color:var(--copper);margin-bottom:20px;font-style:italic;font-weight:300;opacity:.9;text-transform:uppercase}
+.hero-title{font-family:'TTA','Inter','SF Pro Display',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:clamp(28px,4.6vw,52px);line-height:1.08;font-weight:400;letter-spacing:-0.025em;margin-bottom:26px;color:var(--text);max-width:18ch;hyphens:none}
+.hero-title em{font-family:'TTA',serif;font-style:italic;font-weight:400;background:linear-gradient(135deg,var(--gold-2),var(--copper) 60%, var(--gold));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;display:inline;letter-spacing:-.005em}
+.hero-subtitle{font-size:17px;color:var(--muted);line-height:1.65;max-width:540px;margin-bottom:28px}
+.hero-proof{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
+.hero-pill{padding:9px 16px;border:1px solid var(--line);border-radius:999px;font-size:12px;color:var(--muted);letter-spacing:.04em;background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.005));display:inline-flex;align-items:center;gap:7px;transition:border-color .2s ease,color .2s ease}
+.hero-pill:hover{border-color:var(--gold-fade);color:var(--text)}
+.hp-mark{color:var(--gold-2);font-size:8px;line-height:1}
+.hero-verify{display:inline-flex;align-items:center;gap:12px;margin:0 0 22px;padding:11px 18px;border:1px solid var(--gold-fade);border-radius:999px;background:linear-gradient(135deg,rgba(240,188,86,.08),rgba(125,240,167,.04));color:var(--text);font-size:13px;line-height:1.4;text-decoration:none;transition:border-color .25s ease,background .25s ease,transform .25s cubic-bezier(.2,.7,.2,1)}
+.hero-verify:hover{border-color:var(--gold);background:linear-gradient(135deg,rgba(240,188,86,.14),rgba(125,240,167,.06));transform:translateY(-1px)}
+.hero-verify .hv-shield{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--green),#52d088);color:#062b14;font-size:13px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 0 14px rgba(125,240,167,.45)}
+.hero-verify .hv-text{flex:1;color:var(--muted)}
+.hero-verify .hv-text strong{color:var(--gold-2);font-weight:600}
+.hero-verify .hv-arrow{color:var(--gold-2);font-size:14px;flex-shrink:0}
+.hero-anon{margin-top:18px;font-size:12.5px;color:var(--muted-2);line-height:1.6;max-width:540px}
+.hero-anon a{color:var(--gold-2);border-bottom:1px dotted var(--gold-fade);transition:border-color .2s ease,color .2s ease}
+.hero-anon a:hover{color:var(--gold-3);border-bottom-color:var(--gold)}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:32px;padding:24px;border:1px solid var(--gold-fade);border-radius:var(--radius);background:linear-gradient(135deg,rgba(240,188,86,.06),rgba(224,136,80,.03)),linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.008));box-shadow:var(--shadow-gold);position:relative;overflow:hidden}
+.hero-stats::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(255,212,122,.06) 50%,transparent 70%);transform:translateX(-100%);animation:pcShimmer 7s ease-in-out infinite;pointer-events:none}
+@keyframes pcShimmer{0%,40%{transform:translateX(-100%)}60%,100%{transform:translateX(100%)}}
+.hero-stat{padding:0 4px}
+.hero-stat-num{font-size:clamp(18px,2.2vw,26px);font-weight:700;background:linear-gradient(135deg,var(--gold-3),var(--gold-2),var(--copper));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-feature-settings:"tnum" 1,"lnum" 1;line-height:1.1;letter-spacing:-.015em;white-space:nowrap}
+.hero-stat-label{font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-top:4px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{padding:14px 28px;background:linear-gradient(135deg,var(--gold-3),var(--gold-2) 35%,var(--gold) 70%,var(--copper));color:#1a1410;font-weight:600;border-radius:999px;letter-spacing:.01em;font-size:14px;transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .3s ease,filter .25s ease;box-shadow:0 8px 24px rgba(240,188,86,.25),inset 0 1px 0 rgba(255,255,255,.4);position:relative;overflow:hidden}
+.btn-primary::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);transform:translateX(-100%);transition:transform .65s ease;pointer-events:none}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(240,188,86,.45),inset 0 1px 0 rgba(255,255,255,.55);filter:brightness(1.04)}
+.btn-primary:hover::after{transform:translateX(100%)}
+.btn-primary:active{transform:translateY(0);transition:transform .08s ease}
+.btn-secondary{padding:14px 26px;background:transparent;border:1px solid var(--line-strong);color:var(--text);border-radius:999px;font-size:14px;letter-spacing:.01em;transition:border-color .25s ease,background .25s ease,color .25s ease,transform .25s cubic-bezier(.2,.7,.2,1)}
+.btn-secondary:hover{border-color:var(--gold);background:var(--gold-fade);color:var(--gold-3);transform:translateY(-2px)}
+.btn-secondary:active{transform:translateY(0);transition:transform .08s ease}
+
+.hero-side{display:flex;flex-direction:column;gap:18px;align-items:center}
+
+/* ===== COIN — circular portrait with animated halo ===== */
+.coin-stage{position:relative;width:320px;height:320px;flex-shrink:0;isolation:isolate}
+.coin{
+  position:absolute;top:50%;left:50%;width:78%;height:78%;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  background:url('assets/coin-circle.webp') center center/cover no-repeat,
+             radial-gradient(circle,#1a1006 0%,#0a0500 70%);
+  z-index:3;
+  animation:pcCoinFloat 6s ease-in-out infinite alternate;
+  filter:drop-shadow(0 6px 22px rgba(0,0,0,.5));
+}
+@keyframes pcCoinFloat{
+  from{transform:translate(-50%,-50%) scale(1)}
+  to  {transform:translate(-50%,calc(-50% - 5px)) scale(1.014)}
+}
+
+/* Slim rotating gold rim — sits just outside the coin perimeter */
+.coin-ring{
+  position:absolute;top:50%;left:50%;width:84%;height:84%;
+  transform:translate(-50%,-50%);
+  border-radius:50%;pointer-events:none;z-index:2;
+  background:conic-gradient(from 0deg,
+    #f0bc56,#ffd47a,#fff5d4,#ffd47a,#f0bc56,
+    #c98e3a,#f0bc56,#ffd47a,#fff5d4,#ffba66,#f0bc56);
+  -webkit-mask:radial-gradient(circle,transparent 49.2%,#000 49.8%,#000 50%,transparent 50.6%);
+          mask:radial-gradient(circle,transparent 49.2%,#000 49.8%,#000 50%,transparent 50.6%);
+  opacity:.85;
+  animation:pcFireSpin 22s linear infinite;
+  will-change:transform;
+}
+/* Outer warm aura — soft conic flare orbiting the coin */
+.coin-fire-outer{
+  position:absolute;top:50%;left:50%;width:108%;height:108%;
+  transform:translate(-50%,-50%);
+  border-radius:50%;pointer-events:none;z-index:1;
+  background:conic-gradient(from 90deg,
+    transparent 0%,rgba(255,180,80,.30) 12%,rgba(255,140,50,.45) 22%,rgba(255,180,80,.30) 32%,
+    transparent 44%,transparent 58%,
+    rgba(255,140,50,.40) 70%,rgba(255,200,100,.45) 82%,rgba(255,170,80,.30) 92%,transparent 100%);
+  -webkit-mask:radial-gradient(circle,transparent 60%,#000 66%,#000 82%,transparent 90%);
+          mask:radial-gradient(circle,transparent 60%,#000 66%,#000 82%,transparent 90%);
+  filter:blur(6px);
+  opacity:.65;
+  animation:pcFireSpin 34s linear infinite reverse;
+  will-change:transform;
+}
+@keyframes pcFireSpin{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+
+/* Soft warm halo — outermost diffuse glow */
+.coin-glow{
+  position:absolute;top:50%;left:50%;width:135%;height:135%;
+  transform:translate(-50%,-50%);
+  border-radius:50%;pointer-events:none;z-index:0;
+  background:radial-gradient(circle,rgba(255,150,60,.28) 0%,rgba(240,188,86,.18) 30%,rgba(224,136,80,.08) 50%,transparent 72%);
+  filter:blur(32px);
+  animation:pcGlowBreath 5.5s ease-in-out infinite alternate;
+}
+@keyframes pcGlowBreath{
+  from{opacity:.65;transform:translate(-50%,-50%) scale(.96)}
+  to  {opacity:1;transform:translate(-50%,-50%) scale(1.08)}
+}
+
+/* ===== Insight & mini cards ===== */
+.insight-card{padding:22px 24px;border:1px solid var(--line);border-radius:var(--radius-sm);background:linear-gradient(180deg,rgba(20,32,60,.65),rgba(14,24,48,.50));max-width:340px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.insight-label{display:flex;justify-content:space-between;align-items:center;font-size:10.5px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.dot-live{display:inline-flex;align-items:center;gap:6px;color:var(--green);letter-spacing:.16em}
+.dot-live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 8px rgba(125,240,167,.7);animation:pcLivePulse 1.8s ease-in-out infinite}
+.insight-title{font-size:15.5px;color:var(--text);font-weight:500;line-height:1.45;margin-bottom:16px;letter-spacing:.005em}
+.insight-metric{display:flex;gap:12px}
+.metric-box{flex:1;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.02)}
+.metric-box strong{display:block;color:var(--gold-2);font-size:17px;font-weight:600;margin-bottom:2px;letter-spacing:-.005em}
+.metric-box span{font-size:10.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:28px}
+  .hero-stats{grid-template-columns:1fr;gap:12px;padding:16px}
+  .coin-stage{width:240px;height:240px}
+}
+@media(max-width:560px){
+  .coin-stage{width:200px;height:200px}
+  .hero{padding:40px 0 24px}
+  .hero-grid{gap:22px}
+  .hero-actions{flex-direction:column;align-items:stretch}
+  .hero-actions .btn-primary,.hero-actions .btn-secondary{text-align:center}
+  .insight-card{max-width:100%}
+}
+@media(max-width:380px){
+  .coin-stage{width:170px;height:170px}
+  .hero-title{font-size:24px !important;line-height:1.15}
+  .container{padding:0 14px}
+  .section-shell{padding:22px 16px}
+}
+
+/* ===== Method grid ===== */
+.method-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:8px}
+.method-card{padding:26px 24px;border:1px solid var(--line);border-radius:var(--radius-sm);background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.005));transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .25s ease,box-shadow .35s ease,background .35s ease;position:relative;overflow:hidden}
+.method-card::before{content:"";position:absolute;top:0;left:0;width:50%;height:1px;background:linear-gradient(90deg,var(--gold-fade),transparent);transition:width .4s ease}
+.method-card::after{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(circle at 50% 0%,rgba(240,188,86,.12),transparent 65%);opacity:0;transition:opacity .35s ease;pointer-events:none}
+.method-card:hover{transform:translateY(-4px);border-color:var(--gold-fade);box-shadow:0 14px 40px rgba(240,188,86,.12)}
+.method-card:hover::before{width:100%}
+.method-card:hover::after{opacity:1}
+.method-num{font-size:30px;font-weight:700;background:linear-gradient(135deg,var(--gold-2),var(--copper));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;opacity:.8;margin-bottom:14px;line-height:1;font-feature-settings:"tnum" 1}
+.method-name{font-size:16px;font-weight:500;color:var(--text);margin-bottom:8px}
+.method-desc{font-size:13.5px;color:var(--muted);line-height:1.6}
+@media(max-width:900px){.method-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.method-grid{grid-template-columns:1fr}}
+
+/* ===== Trust strip ===== */
+.trust-strip{padding:42px 0 12px;position:relative;z-index:2}
+.trust-strip-inner{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;padding:28px 32px;background:linear-gradient(135deg,rgba(240,188,86,.05),rgba(224,136,80,.025)),linear-gradient(180deg,rgba(255,255,255,.028),rgba(255,255,255,.012));border:1px solid var(--gold-fade);border-radius:var(--radius);box-shadow:var(--shadow)}
+.trust-cell{display:flex;flex-direction:column;gap:6px;padding:0 24px;border-right:1px solid var(--line)}
+.trust-cell:first-child{padding-left:0}
+.trust-cell:last-child{border-right:none;padding-right:0}
+.trust-cell-num{font-size:clamp(18px,2.2vw,22px);font-weight:700;background:linear-gradient(135deg,var(--gold-3),var(--gold-2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-feature-settings:"tnum" 1,"lnum" 1;letter-spacing:-0.01em;line-height:1.15;word-break:keep-all}
+.trust-cell-label{font-size:11px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;font-weight:500}
+.trust-cell-desc{font-size:13px;color:var(--muted-2);line-height:1.5;margin-top:4px}
+@media(max-width:980px){
+  .trust-strip-inner{grid-template-columns:1fr 1fr;gap:18px;padding:22px}
+  .trust-cell{border-right:none;border-bottom:1px solid var(--line);padding:0 0 14px 0}
+  .trust-cell:nth-last-child(-n+2){border-bottom:none;padding-bottom:0}
+}
+@media(max-width:560px){
+  .trust-strip-inner{grid-template-columns:1fr}
+  .trust-cell{border-bottom:1px solid var(--line);padding-bottom:14px}
+  .trust-cell:last-child{border-bottom:none;padding-bottom:0}
+}
+
+/* ===== Honesty / transparency stats ===== */
+.honest-card{margin-top:8px;padding:32px;border:1px solid var(--gold-fade);border-radius:var(--radius);background:linear-gradient(135deg,rgba(240,188,86,.05),rgba(93,140,196,.04)),linear-gradient(180deg,rgba(20,32,60,.55),rgba(14,24,48,.40));box-shadow:var(--shadow)}
+.honest-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.honest-cell{display:flex;flex-direction:column;gap:6px;padding:0 22px;border-right:1px solid var(--line);position:relative}
+.honest-cell:first-child{padding-left:0}.honest-cell:last-child{border-right:none;padding-right:0}
+.honest-num{font-size:clamp(20px,2.4vw,26px);font-weight:700;line-height:1.05;letter-spacing:-.01em;font-feature-settings:"tnum" 1}
+.honest-num.up{background:linear-gradient(135deg,var(--green),#52d088);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.honest-num.gold{background:linear-gradient(135deg,var(--gold-3),var(--gold-2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.honest-num.amber{color:#ffa75a}
+.honest-num.steel{background:linear-gradient(135deg,var(--ice),var(--steel));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.honest-label{font-size:11.5px;color:var(--muted);letter-spacing:.10em;text-transform:uppercase;font-weight:500}
+.honest-desc{font-size:12.5px;color:var(--muted-2);line-height:1.55;margin-top:4px}
+.honest-foot{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);line-height:1.65}
+.honest-foot strong{color:var(--gold-2);font-weight:500}
+@media(max-width:900px){.honest-grid{grid-template-columns:1fr 1fr;gap:18px}.honest-cell{border-right:none;border-bottom:1px solid var(--line);padding:0 0 14px 0}.honest-cell:nth-last-child(-n+2){border-bottom:none;padding-bottom:0}}
+@media(max-width:560px){.honest-grid{grid-template-columns:1fr}.honest-cell{border-bottom:1px solid var(--line);padding-bottom:14px}.honest-cell:last-child{border-bottom:none;padding-bottom:0}.honest-card{padding:22px 20px}}
+
+/* ===== Anti-promises ===== */
+.anti-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px}
+.anti-col{padding:28px;border-radius:var(--radius-sm);border:1px solid var(--line);position:relative;transition:transform .35s ease,border-color .25s ease}
+.anti-col:hover{transform:translateY(-2px)}
+.anti-col.no{background:linear-gradient(180deg,rgba(255,90,90,0.06),rgba(255,90,90,0.012));border-color:rgba(255,120,120,.14)}
+.anti-col.yes{background:linear-gradient(180deg,rgba(125,240,167,0.07),rgba(125,240,167,0.012));border-color:rgba(125,240,167,.16)}
+.anti-head{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:18px;font-weight:600}
+.anti-list{display:flex;flex-direction:column;gap:12px}
+.anti-item{display:flex;gap:12px;align-items:flex-start;font-size:14.5px;line-height:1.55;color:var(--text)}
+.anti-mark{flex-shrink:0;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;margin-top:1px}
+.anti-col.no .anti-mark{background:rgba(255,120,120,0.18);color:#ff9c9c}
+.anti-col.yes .anti-mark{background:rgba(125,240,167,0.20);color:var(--green)}
+@media(max-width:760px){.anti-grid{grid-template-columns:1fr}.anti-col{padding:22px}}
+
+/* ===== Before / After comparison ===== */
+.ba-grid{display:grid;grid-template-columns:1fr 110px 1fr;gap:18px;margin-top:8px;align-items:stretch}
+.ba-col{padding:30px 28px;border:1px solid var(--line);border-radius:var(--radius-sm);position:relative;transition:transform .35s ease,border-color .25s ease,box-shadow .35s ease;display:flex;flex-direction:column;gap:18px}
+.ba-col.ba-before{background:linear-gradient(180deg,rgba(255,90,90,.05),rgba(255,90,90,.012));border-color:rgba(255,120,120,.16)}
+.ba-col.ba-after{background:linear-gradient(180deg,rgba(125,240,167,.07),rgba(125,240,167,.014));border-color:rgba(125,240,167,.18)}
+.ba-col:hover{transform:translateY(-2px)}
+.ba-col.ba-after:hover{box-shadow:0 14px 40px rgba(125,240,167,.10)}
+.ba-head{display:flex;flex-direction:column;gap:8px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.ba-tag{display:inline-flex;align-self:flex-start;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;padding:5px 12px;border-radius:999px;font-weight:700}
+.ba-before .ba-tag{background:rgba(255,120,120,.15);color:#ff9c9c;border:1px solid rgba(255,120,120,.25)}
+.ba-after .ba-tag{background:rgba(125,240,167,.18);color:var(--green);border:1px solid rgba(125,240,167,.25)}
+.ba-title{font-size:18px;color:var(--text);font-weight:500;line-height:1.35}
+.ba-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;flex:1}
+.ba-list li{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--muted);line-height:1.55}
+.ba-icon{flex-shrink:0;width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;margin-top:1px}
+.ba-before .ba-icon{background:rgba(255,120,120,.18);color:#ff9c9c}
+.ba-after .ba-icon{background:rgba(125,240,167,.20);color:var(--green)}
+.ba-arrow{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:relative}
+.ba-arrow-line{width:1px;height:46%;background:linear-gradient(180deg,transparent,var(--gold-fade),transparent)}
+.ba-arrow-head{font-size:38px;color:var(--gold-2);line-height:1;text-shadow:0 0 18px rgba(240,188,86,.45);transform:rotate(0);animation:baArrowFloat 3.2s ease-in-out infinite alternate}
+@keyframes baArrowFloat{from{transform:translateX(-3px)}to{transform:translateX(3px)}}
+.ba-arrow-label{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-2);font-weight:600;text-align:center;line-height:1.3}
+@media(max-width:900px){
+  .ba-grid{grid-template-columns:1fr;gap:14px}
+  .ba-arrow{flex-direction:row;justify-content:center;padding:8px 0}
+  .ba-arrow-line{width:38%;height:1px;background:linear-gradient(90deg,transparent,var(--gold-fade),transparent)}
+  .ba-arrow-head{transform:rotate(90deg);font-size:32px;animation:baArrowFloatV 3.2s ease-in-out infinite alternate}
+  @keyframes baArrowFloatV{from{transform:rotate(90deg) translateX(-3px)}to{transform:rotate(90deg) translateX(3px)}}
+}
+@media(max-width:560px){.ba-col{padding:22px 20px}}
+
+/* ===== Proof grid ===== */
+.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+.proof-card{display:flex;flex-direction:column;gap:14px;padding:24px;border:1px solid var(--line);border-radius:var(--radius-sm);background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.005));text-decoration:none;color:inherit;transition:transform .35s ease,border-color .25s ease,background .35s ease,box-shadow .35s ease}
+.proof-card:hover{transform:translateY(-3px);border-color:var(--gold-fade);background:linear-gradient(135deg,rgba(240,188,86,.08),rgba(224,136,80,.03)),linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.005));box-shadow:0 14px 40px rgba(240,188,86,.15)}
+.proof-head{display:flex;align-items:center;gap:14px}
+.proof-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(240,188,86,.25),rgba(224,136,80,.12));color:var(--gold-3);font-weight:700;font-size:13px;letter-spacing:.04em;border:1px solid var(--gold-fade)}
+.proof-title{font-size:17px;color:var(--text);font-weight:500}
+.proof-text{font-size:14px;color:var(--muted);line-height:1.55;flex:1}
+.proof-link{font-size:13px;background:linear-gradient(135deg,var(--gold-2),var(--copper));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-weight:500;letter-spacing:.02em;border-top:1px solid var(--line);padding-top:14px;display:flex;align-items:center;justify-content:space-between}
+.proof-link span{color:var(--gold-2);-webkit-text-fill-color:initial}
+.proof-note{margin-top:18px;padding:18px 22px;border:1px dashed var(--line);border-radius:var(--radius-sm);font-size:13.5px;color:var(--muted);line-height:1.6;text-align:center}
+@media(max-width:900px){.proof-grid{grid-template-columns:1fr}}
+
+/* ===== Trade Timeline ===== */
+.tl-card{margin:8px 0 24px;padding:30px 32px 26px;border:1px solid var(--gold-fade);border-radius:var(--radius);background:linear-gradient(180deg,rgba(20,32,60,.50),rgba(14,24,48,.35)),linear-gradient(135deg,rgba(240,188,86,.05),rgba(93,140,196,.04));box-shadow:var(--shadow-gold);position:relative;overflow:hidden}
+.tl-head{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;margin-bottom:32px}
+.tl-eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-2);font-weight:600;margin-bottom:6px}
+.tl-title{font-size:18px;color:var(--text);font-weight:500;letter-spacing:-.005em}
+.tl-link{font-size:12.5px;color:var(--gold-2);border:1px solid var(--gold-fade);padding:8px 14px;border-radius:999px;letter-spacing:.04em;transition:border-color .25s ease,background .25s ease,color .25s ease}
+.tl-link:hover{border-color:var(--gold);background:var(--gold-fade);color:var(--gold-3)}
+.tl-track{position:relative;height:170px;margin:0 18px}
+.tl-line{position:absolute;left:0;right:0;top:50%;height:1px;background:linear-gradient(90deg,transparent 0%,var(--gold-fade) 8%,var(--gold-fade) 92%,transparent 100%);transform:translateY(-50%)}
+.tl-line-glow{position:absolute;left:6%;width:78%;top:50%;height:2px;background:linear-gradient(90deg,rgba(240,188,86,.3),rgba(255,212,122,.6) 50%,rgba(240,188,86,.3));filter:blur(3px);transform:translateY(-50%);opacity:.6}
+.tl-point{position:absolute;left:var(--tl-pos);top:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center}
+.tl-dot{width:14px;height:14px;border-radius:50%;background:radial-gradient(circle,var(--gold-3),var(--gold-2) 60%,var(--copper));box-shadow:0 0 12px rgba(240,188,86,.7),inset 0 1px 0 rgba(255,255,255,.5);position:relative;z-index:2}
+.tl-dot-pulse{width:18px;height:18px;animation:tlPulse 2s ease-in-out infinite}
+@keyframes tlPulse{0%,100%{box-shadow:0 0 12px rgba(240,188,86,.7),inset 0 1px 0 rgba(255,255,255,.5)}50%{box-shadow:0 0 22px rgba(240,188,86,1),inset 0 1px 0 rgba(255,255,255,.5)}}
+.tl-card-mini{position:absolute;top:-92px;left:50%;transform:translateX(-50%);min-width:148px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:linear-gradient(180deg,rgba(20,32,60,.92),rgba(14,24,48,.88));text-align:center;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:transform .25s ease,border-color .25s ease}
+.tl-card-mini::after{content:"";position:absolute;left:50%;bottom:-6px;transform:translateX(-50%) rotate(45deg);width:10px;height:10px;background:rgba(20,32,60,.92);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tl-point:nth-child(odd) .tl-card-mini{top:auto;bottom:-92px}
+.tl-point:nth-child(odd) .tl-card-mini::after{bottom:auto;top:-6px;border-right:none;border-bottom:none;border-left:1px solid var(--line);border-top:1px solid var(--line)}
+.tl-point:hover .tl-card-mini{transform:translateX(-50%) translateY(-3px);border-color:var(--gold-fade)}
+.tl-card-mini.tl-card-hero{border-color:var(--gold-fade);background:linear-gradient(135deg,rgba(240,188,86,.18),rgba(224,136,80,.06)),linear-gradient(180deg,rgba(20,32,60,.92),rgba(14,24,48,.88));box-shadow:0 8px 24px rgba(240,188,86,.20)}
+.tl-card-hero::after{background:rgba(240,188,86,.18) !important}
+.tl-mini-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:5px}
+.tl-asset{font-size:12px;font-weight:700;color:var(--gold-2);letter-spacing:.04em}
+.tl-date{font-size:10px;color:var(--muted-2);letter-spacing:.04em}
+.tl-mini-price{font-size:11px;color:var(--muted);letter-spacing:.02em;font-feature-settings:"tnum" 1;margin-bottom:4px;line-height:1.3}
+.tl-mini-result{font-size:15px;font-weight:700;color:var(--green);font-feature-settings:"tnum" 1;letter-spacing:-.005em}
+.tl-card-hero .tl-mini-result{font-size:17px}
+.tl-foot{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:32px;padding-top:22px;border-top:1px solid var(--line)}
+.tl-foot-cell{display:flex;flex-direction:column;gap:4px;padding:0 18px;border-right:1px solid var(--line)}
+.tl-foot-cell:first-child{padding-left:0}
+.tl-foot-cell:last-child{border-right:none;padding-right:0}
+.tl-foot-num{font-size:20px;font-weight:700;background:linear-gradient(135deg,var(--gold-3),var(--gold-2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-feature-settings:"tnum" 1;letter-spacing:-.01em;line-height:1.05}
+.tl-foot-lbl{font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;font-weight:500}
+@media(max-width:900px){
+  .tl-track{height:auto;margin:0;display:flex;flex-direction:column;gap:14px;padding-left:24px;border-left:1px dashed var(--gold-fade)}
+  .tl-line,.tl-line-glow{display:none}
+  .tl-point{position:static;transform:none;flex-direction:row;align-items:center;gap:14px;width:100%}
+  .tl-card-mini,.tl-point:nth-child(odd) .tl-card-mini{position:static;transform:none;min-width:0;flex:1;text-align:left;top:auto;bottom:auto}
+  .tl-card-mini::after,.tl-point:nth-child(odd) .tl-card-mini::after{display:none}
+  .tl-mini-head{justify-content:flex-start;gap:12px}
+}
+@media(max-width:760px){
+  .tl-card{padding:22px 18px}
+  .tl-foot{grid-template-columns:1fr 1fr;gap:14px}
+  .tl-foot-cell{border-right:none;border-bottom:1px solid var(--line);padding:0 0 12px 0}
+  .tl-foot-cell:nth-last-child(-n+2){border-bottom:none;padding-bottom:0}
+  .tl-foot-num{font-size:18px}
+}
+
+/* ===== Projects ===== */
+.projects-grid{display:flex;flex-direction:column;gap:12px;margin-top:8px}
+.project-row{border:1px solid var(--line);border-radius:var(--radius-sm);background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.005));overflow:hidden;transition:border-color .25s ease,box-shadow .35s ease}
+.project-row:hover{border-color:var(--gold-fade);box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.project-row.open{border-color:var(--gold-fade)}
+.project-header{padding:20px 24px;display:flex;align-items:center;gap:18px;cursor:pointer}
+.proj-icon{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--gold-3),var(--gold-2) 35%,var(--gold) 70%,var(--copper));color:#1a1410;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;flex-shrink:0;box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 4px 12px rgba(240,188,86,.2)}
+.proj-info{flex:1;min-width:0}
+.proj-name{font-size:16px;font-weight:500;color:var(--text);margin-bottom:4px}
+.proj-meta{font-size:12.5px;color:var(--muted-2)}
+.proj-result{text-align:right;flex-shrink:0}
+.proj-pct{font-size:22px;font-weight:700;color:var(--green);font-feature-settings:"tnum" 1}
+.proj-pct-label{font-size:11px;color:var(--muted);letter-spacing:.04em}
+.proj-arrow{margin-left:14px;color:var(--gold-2);transition:transform .25s ease;font-size:14px}
+.project-row.open .proj-arrow{transform:rotate(180deg)}
+.proj-expand{padding:0 24px;max-height:0;overflow:hidden;transition:max-height .4s ease,padding .4s ease}
+.project-row.open .proj-expand{padding:8px 24px 24px 24px;max-height:1200px}
+.proj-highlight{padding:12px 16px;background:linear-gradient(135deg,rgba(125,240,167,.10),rgba(125,240,167,.04));border-left:2px solid var(--green);color:var(--text);font-size:13.5px;line-height:1.55;margin-bottom:14px;border-radius:6px}
+.proj-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:14px 0}
+.proj-step{padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:rgba(0,0,0,.18)}
+.proj-step-label{font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.proj-step-val{font-size:16px;color:var(--text);font-weight:500;font-feature-settings:"tnum" 1}
+.proj-step-val.g{color:var(--green)}
+.proj-logic{font-size:13.5px;color:var(--muted);line-height:1.65;margin:10px 0}
+.proj-logic strong{color:var(--gold-2);font-weight:500}
+.proj-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.proj-tag{padding:5px 12px;border:1px solid var(--line);border-radius:999px;font-size:11px;color:var(--muted);letter-spacing:.03em}
+@media(max-width:760px){
+  .project-header{padding:16px 18px;gap:14px}
+  .proj-pct{font-size:19px}
+  .proj-steps{grid-template-columns:repeat(3,1fr);gap:10px}
+  .proj-step{padding:10px 12px}
+  .proj-step-val{font-size:14px}
+  .project-row.open .proj-expand{padding:6px 18px 22px 18px}
+}
+@media(max-width:560px){
+  .project-header{
+    padding:14px;
+    display:grid;
+    grid-template-columns:auto 1fr auto;
+    grid-template-areas:
+      "icon info arrow"
+      "result result result";
+    column-gap:12px;
+    row-gap:10px;
+    align-items:center;
+  }
+  .proj-icon{grid-area:icon;width:42px;height:42px;font-size:16px;border-radius:11px;align-self:start}
+  .proj-info{grid-area:info;min-width:0}
+  .proj-name{font-size:14.5px;line-height:1.3;margin-bottom:3px;word-break:break-word}
+  .proj-meta{font-size:11.5px;line-height:1.45;word-break:break-word}
+  .proj-arrow{grid-area:arrow;margin-left:0;font-size:13px;align-self:start;margin-top:4px}
+  .proj-result{
+    grid-area:result;
+    text-align:left;
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    padding-top:12px;
+    border-top:1px solid var(--line);
+  }
+  .proj-pct{font-size:20px}
+  .proj-pct-label{font-size:11px}
+  .project-row.open .proj-expand{padding:6px 14px 20px 14px}
+  .proj-logic{font-size:12.5px;line-height:1.6}
+  .proj-tag{font-size:10.5px;padding:4px 10px}
+}
+@media(max-width:380px){
+  .proj-steps{grid-template-columns:1fr 1fr}
+  .proj-name{font-size:14px}
+}
+
+.summary-row{margin-top:18px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:22px 24px;border:1px solid var(--gold-fade);border-radius:var(--radius);background:linear-gradient(135deg,rgba(240,188,86,.08),rgba(224,136,80,.03))}
+.sum-cell{display:flex;flex-direction:column;gap:4px}
+.sum-label{font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.sum-val{font-size:18px;font-weight:600;background:linear-gradient(135deg,var(--gold-3),var(--gold-2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-feature-settings:"tnum" 1}
+@media(max-width:760px){.summary-row{grid-template-columns:1fr 1fr}}
+
+.tv-block{margin-top:18px;padding:18px 22px;border:1px solid var(--line);border-radius:var(--radius-sm);background:rgba(0,0,0,.2);display:flex;align-items:center;gap:14px;transition:border-color .25s ease,transform .35s ease}
+.tv-block:hover{border-color:var(--gold-fade);transform:translateY(-2px)}
+.tv-live{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 12px rgba(125,240,167,.7);animation:pcLivePulse 1.6s ease-in-out infinite;flex-shrink:0}
+@keyframes pcLivePulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.85)}}
+.tv-text{flex:1;min-width:0}
+.tv-name{font-size:15px;color:var(--text);font-weight:500}
+.tv-sub{font-size:12px;color:var(--muted);margin-top:2px}
+.tv-arrow{color:var(--gold-2);font-size:18px}
+
+/* ===== Profit calculator ===== */
+.calc{margin-top:24px;padding:32px 32px 26px;border:1px solid var(--gold-fade);border-radius:var(--radius);background:linear-gradient(135deg,rgba(240,188,86,.06),rgba(93,140,196,.04)),linear-gradient(180deg,rgba(20,32,60,.55),rgba(14,24,48,.40));box-shadow:var(--shadow-gold)}
+.calc-head{margin-bottom:24px}
+.calc-eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-2);font-weight:600;margin-bottom:8px}
+.calc-title{font-size:22px;color:var(--text);font-weight:500;margin-bottom:8px;letter-spacing:-.005em}
+.calc-sub{font-size:13.5px;color:var(--muted);line-height:1.6;max-width:680px}
+.calc-sub em{color:var(--gold-2);font-style:italic;font-weight:500}
+.calc-body{display:grid;grid-template-columns:280px 1fr;gap:28px;align-items:start}
+.calc-input-wrap{padding:22px;border:1px solid var(--line);border-radius:var(--radius-sm);background:rgba(0,0,0,.18);position:sticky;top:90px}
+.calc-label{display:block;font-size:11px;color:var(--muted);letter-spacing:.10em;text-transform:uppercase;margin-bottom:12px;font-weight:500}
+.calc-input-row{display:flex;align-items:center;gap:8px;padding:14px 16px;border:1px solid var(--gold-fade);border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.005));margin-bottom:14px;transition:border-color .25s ease,box-shadow .25s ease}
+.calc-input-row:focus-within{border-color:var(--gold);box-shadow:0 0 0 3px rgba(240,188,86,.12)}
+.calc-prefix{font-size:22px;color:var(--gold-2);font-weight:600;line-height:1}
+.calc-input{flex:1;background:none;border:none;outline:none;color:var(--text);font:700 24px/1 'TTA Mono',ui-monospace,'JetBrains Mono','SF Mono',Menlo,monospace;font-feature-settings:"tnum" 1,"lnum" 1;width:100%;-moz-appearance:textfield;letter-spacing:-.005em}
+.calc-input::-webkit-outer-spin-button,.calc-input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.calc-presets{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.calc-preset{padding:8px 10px;border:1px solid var(--line);border-radius:8px;font-size:12px;color:var(--muted);background:transparent;cursor:pointer;transition:all .2s ease;font-feature-settings:"tnum" 1}
+.calc-preset:hover{border-color:var(--gold-fade);color:var(--gold-2);background:rgba(240,188,86,.06)}
+.calc-preset.active{border-color:var(--gold);background:linear-gradient(135deg,rgba(240,188,86,.20),rgba(224,136,80,.10));color:var(--gold-3)}
+.calc-results{display:flex;flex-direction:column;gap:10px}
+.calc-row{display:grid;grid-template-columns:200px 1fr;gap:18px;align-items:center;padding:14px 18px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,.022),rgba(255,255,255,.005));transition:border-color .25s ease,transform .25s ease}
+.calc-row:hover{border-color:var(--gold-fade);transform:translateX(2px)}
+.calc-row-asset{display:flex;align-items:center;gap:12px;min-width:0}
+.calc-row-asset > span:last-child{display:flex;flex-direction:column;gap:2px;min-width:0}
+.calc-row-icon{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold-3),var(--gold-2) 35%,var(--gold) 70%,var(--copper));color:#1a1410;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 4px 10px rgba(240,188,86,.18)}
+.calc-row-name{font-size:14px;color:var(--text);font-weight:500;line-height:1.2}
+.calc-row-meta{font-size:11px;color:var(--muted-2);letter-spacing:.02em;line-height:1.3}
+.calc-row-result{display:flex;flex-direction:column;gap:6px;min-width:0}
+.calc-row-val{font-size:18px;font-weight:700;color:var(--green);font-feature-settings:"tnum" 1;letter-spacing:-.005em;line-height:1.1;transition:color .25s ease}
+.calc-row-bar{height:5px;background:rgba(255,255,255,.04);border-radius:3px;overflow:hidden}
+.calc-row-bar-fill{display:block;height:100%;width:var(--w,0%);background:linear-gradient(90deg,var(--green),var(--gold-2),var(--copper));border-radius:3px;box-shadow:0 0 10px rgba(125,240,167,.30);transition:width .5s cubic-bezier(.2,.7,.2,1)}
+.calc-total{margin-top:6px;display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border:1px solid var(--gold);border-radius:14px;background:linear-gradient(135deg,rgba(240,188,86,.16),rgba(224,136,80,.06));box-shadow:0 8px 24px rgba(240,188,86,.16)}
+.calc-total-label{font-size:13px;color:var(--gold-3);letter-spacing:.06em;text-transform:uppercase;font-weight:500}
+.calc-total-val{font-size:clamp(22px,2.8vw,28px);font-weight:700;background:linear-gradient(135deg,var(--gold-3),var(--gold-2),var(--copper));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-feature-settings:"tnum" 1;letter-spacing:-.015em;line-height:1}
+.calc-disclaimer{margin-top:18px;padding:12px 16px;border:1px dashed var(--line);border-radius:12px;font-size:12px;color:var(--muted-2);line-height:1.55;text-align:center}
+@media(max-width:900px){
+  .calc-body{grid-template-columns:1fr;gap:18px}
+  .calc-input-wrap{position:static}
+  .calc-row{grid-template-columns:1fr;gap:12px;padding:14px}
+}
+@media(max-width:560px){
+  .calc{padding:22px 18px 18px}
+  .calc-total{flex-direction:column;gap:6px;text-align:center}
+  .calc-total-val{font-size:26px}
+}
+
+/* ===== About ===== */
+.about-hero{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;padding:40px 0 60px}
+.about-left{display:flex;flex-direction:column;align-items:flex-start;gap:18px}
+.about-coin-wrap{align-self:center}
+.about-coin-wrap .coin-stage{width:260px;height:260px}
+.about-name{font-size:24px;font-weight:500;color:var(--text)}
+.about-role{font-size:13px;color:var(--gold-2);letter-spacing:.04em}
+.about-manifesto{font-size:15px;color:var(--muted);line-height:1.75;max-width:500px}
+.about-manifesto em{background:linear-gradient(135deg,var(--gold-2),var(--copper));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-style:italic;font-weight:500}
+.about-right{display:flex;flex-direction:column;gap:14px}
+.about-stat-card{padding:18px 20px;border:1px solid var(--line);border-radius:var(--radius-sm);background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.005));transition:border-color .25s ease,transform .35s ease}
+.about-stat-card:hover{border-color:var(--gold-fade);transform:translateX(4px)}
+.about-stat-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;gap:12px}
+.about-stat-name{font-size:13px;color:var(--muted);min-width:0;flex:1}
+.about-stat-val{font-size:18px;font-weight:600;background:linear-gradient(135deg,var(--gold-3),var(--gold-2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-feature-settings:"tnum" 1;white-space:nowrap;flex-shrink:0}
+.about-stat-bar{height:6px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden}
+.about-stat-bar-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-3),var(--copper));border-radius:3px;transition:width 1.5s cubic-bezier(.2,.7,.2,1) .15s;box-shadow:0 0 12px rgba(240,188,86,.4)}
+@media(max-width:900px){.about-hero{grid-template-columns:1fr;gap:32px}}
+
+/* ===== Pricing ===== */
+.plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+.plan-card{position:relative;padding:34px 28px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.005));display:flex;flex-direction:column;gap:8px;transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .25s ease,box-shadow .35s ease}
+.plan-card:hover{transform:translateY(-4px);border-color:var(--gold-fade);box-shadow:0 18px 50px rgba(240,188,86,.15)}
+.plan-card.featured{border-color:var(--gold);background:linear-gradient(135deg,rgba(240,188,86,.08),rgba(224,136,80,.03)),linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.005));transform:scale(1.02);box-shadow:var(--shadow-gold)}
+.plan-card.featured:hover{transform:scale(1.02) translateY(-4px)}
+.plan-badge{position:absolute;top:-12px;right:24px;padding:7px 16px;background:linear-gradient(135deg,var(--gold-3),var(--gold-2),var(--gold));color:#1a1410;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;box-shadow:0 6px 16px rgba(240,188,86,.3)}
+.plan-name{font-size:14px;color:var(--gold-2);letter-spacing:.08em;text-transform:uppercase;font-weight:500;margin-bottom:6px}
+.plan-tagline{font-size:13px;color:var(--muted);line-height:1.45;margin-bottom:12px;min-height:38px}
+.plan-price{font-size:clamp(32px,4vw,40px);font-weight:700;color:var(--text);line-height:1;letter-spacing:-.02em}
+.plan-price span{font-size:14px;color:var(--muted);font-weight:400;letter-spacing:.04em}
+.plan-period{font-size:12px;color:var(--muted-2);letter-spacing:.04em;margin-bottom:14px;line-height:1.5}
+.plan-badge-secondary{background:linear-gradient(135deg,rgba(156,196,240,.30),rgba(93,140,196,.20)) !important;color:var(--ice) !important;box-shadow:0 6px 16px rgba(93,140,196,.20) !important}
+.plan-divider{height:1px;background:linear-gradient(90deg,transparent,var(--line-strong),transparent);margin:8px 0 14px}
+.plan-feature{display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;padding:6px 0}
+.plan-feature.no{color:var(--muted-2)}
+.plan-feature .feat-icon{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px}
+.plan-feature.yes .feat-icon{background:rgba(125,240,167,.20);color:var(--green)}
+.plan-feature.no .feat-icon{background:rgba(255,255,255,.05);color:var(--muted-2)}
+.plan-btn{margin-top:18px;padding:14px;border-radius:999px;font-size:14px;font-weight:500;letter-spacing:.02em;transition:all .25s ease}
+.plan-btn-outline{border:1px solid var(--line-strong);color:var(--text);background:transparent}
+.plan-btn-outline:hover{border-color:var(--gold);background:var(--gold-fade);color:var(--gold-3)}
+.plan-btn-gold{background:linear-gradient(135deg,var(--gold-3),var(--gold-2) 35%,var(--gold) 70%,var(--copper));color:#1a1410;font-weight:600;box-shadow:0 8px 24px rgba(240,188,86,.25),inset 0 1px 0 rgba(255,255,255,.4)}
+.plan-btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(240,188,86,.4),inset 0 1px 0 rgba(255,255,255,.5)}
+@media(max-width:900px){.plans-grid{grid-template-columns:1fr}.plan-card.featured{transform:none}.plan-card.featured:hover{transform:translateY(-4px)}}
+
+.edu-card{margin-top:32px;padding:36px;border:1px solid var(--gold-fade);border-radius:var(--radius);background:linear-gradient(135deg,rgba(240,188,86,.08),rgba(224,136,80,.04));display:grid;grid-template-columns:2fr 1fr;gap:32px;align-items:center;box-shadow:var(--shadow-gold)}
+.edu-tag{font-size:11px;letter-spacing:.18em;text-transform:uppercase;background:linear-gradient(135deg,var(--gold-2),var(--copper));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:10px;font-weight:600}
+.edu-title{font-size:clamp(20px,2.4vw,24px);font-weight:500;color:var(--text);margin-bottom:10px;letter-spacing:-.01em}
+.edu-desc{font-size:14px;color:var(--muted);line-height:1.65}
+.edu-right{text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.edu-price{font-size:clamp(28px,3.6vw,36px);font-weight:700;background:linear-gradient(135deg,var(--gold-3),var(--gold-2),var(--copper));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.edu-price-label{font-size:12px;color:var(--muted);margin-bottom:8px}
+@media(max-width:760px){.edu-card{grid-template-columns:1fr;text-align:center;padding:28px}.edu-right{align-items:center;text-align:center}}
+
+/* ===== How it works ===== */
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+.how-step{position:relative;padding:30px 28px;border:1px solid var(--line);border-radius:var(--radius-sm);background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.005));overflow:hidden;transition:transform .35s ease,border-color .25s ease}
+.how-step:hover{transform:translateY(-3px);border-color:var(--gold-fade)}
+.how-step::before{content:'';position:absolute;top:0;left:0;width:60%;height:1px;background:linear-gradient(90deg,var(--gold-fade),transparent)}
+.how-num{font-size:42px;font-weight:700;background:linear-gradient(135deg,var(--gold-2),var(--copper));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1;opacity:.7;margin-bottom:14px;letter-spacing:-.02em;font-feature-settings:"tnum" 1}
+.how-title{font-size:18px;color:var(--text);font-weight:500;margin-bottom:8px;letter-spacing:.005em}
+.how-desc{font-size:14px;color:var(--muted);line-height:1.6}
+@media(max-width:760px){.how-grid{grid-template-columns:1fr}}
+
+.guarantee-card{margin-top:28px;padding:28px;border:1px solid var(--gold-fade);border-radius:var(--radius);background:linear-gradient(135deg,rgba(240,188,86,.08),rgba(224,136,80,.03));display:flex;gap:20px;align-items:flex-start;box-shadow:var(--shadow-gold)}
+.guarantee-icon{flex-shrink:0;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--gold-3),var(--gold-2),var(--copper));display:flex;align-items:center;justify-content:center;color:#1a1410;font-weight:600;font-size:28px;box-shadow:inset 0 2px 0 rgba(255,255,255,.4),0 6px 18px rgba(240,188,86,.3)}
+.guarantee-title{font-size:18px;color:var(--text);font-weight:500;margin-bottom:8px}
+.guarantee-text{font-size:14px;color:var(--muted);line-height:1.65}
+.guarantee-text em{color:var(--gold-2);font-style:italic}
+@media(max-width:560px){.guarantee-card{flex-direction:column;padding:22px}}
+
+/* ===== FAQ ===== */
+.faq-list{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.faq-item{border:1px solid var(--line);border-radius:var(--radius-sm);background:linear-gradient(180deg,rgba(255,255,255,.022),rgba(255,255,255,.005));overflow:hidden;transition:border-color .25s ease,background .25s ease}
+.faq-item:hover{border-color:var(--line-strong)}
+.faq-item[open]{border-color:var(--gold-fade);background:linear-gradient(135deg,rgba(240,188,86,.04),rgba(224,136,80,.02)),linear-gradient(180deg,rgba(255,255,255,.022),rgba(255,255,255,.005))}
+.faq-q{padding:18px 22px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;gap:16px;font-size:15px;color:var(--text);font-weight:500;list-style:none;line-height:1.4}
+.faq-q::-webkit-details-marker{display:none}
+.faq-toggle{flex-shrink:0;width:28px;height:28px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;transition:transform .3s ease,background .3s ease,color .3s ease;color:var(--gold-2);font-size:18px;font-weight:300;line-height:1}
+.faq-item[open] .faq-toggle{transform:rotate(45deg);background:linear-gradient(135deg,var(--gold-2),var(--copper));color:#1a1410}
+.faq-a{padding:0 22px 22px;color:var(--muted);font-size:14px;line-height:1.7}
+.faq-item[open] .faq-a{animation:pcFaqIn .35s cubic-bezier(.2,.7,.2,1) both}
+@keyframes pcFaqIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:560px){
+  .faq-q{padding:16px 18px;font-size:14px;gap:12px}
+  .faq-toggle{width:24px;height:24px;font-size:16px}
+  .faq-a{padding:0 18px 18px;font-size:13.5px;line-height:1.65}
+}
+.faq-a em{color:var(--gold-2);font-style:italic}
+
+/* ===== Risk box ===== */
+.risk-box{margin-top:28px;padding:24px 26px;border:1px solid rgba(255,160,90,.22);border-radius:var(--radius-sm);background:linear-gradient(180deg,rgba(255,160,90,.07),rgba(255,160,90,.014))}
+.risk-head{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.risk-icon{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#ffb87a,#e08850);display:flex;align-items:center;justify-content:center;color:#1a0e08;font-weight:700;flex-shrink:0;font-size:18px}
+.risk-title{font-size:12px;letter-spacing:.14em;color:var(--muted-2);font-weight:500;text-transform:uppercase}
+.risk-list{display:flex;flex-direction:column;gap:9px;color:var(--muted);font-size:13.5px;line-height:1.6;list-style:none;padding:0;margin:0}
+.risk-list li{padding-left:18px;position:relative}
+.risk-list li::before{content:'•';position:absolute;left:4px;top:-1px;color:#ffa75a;font-size:18px;line-height:1}
+
+.disclaimer{padding:32px 28px;text-align:center;font-size:12px;color:var(--muted-2);max-width:var(--max);margin:0 auto;line-height:1.6}
+
+/* ===== Footer ===== */
+footer{border-top:1px solid var(--line);padding:48px 0 60px;margin-top:32px;background:linear-gradient(180deg,transparent,rgba(0,0,0,.2))}
+.footer-panel{max-width:var(--max);margin:0 auto;padding:0 28px;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;align-items:start}
+.footer-brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:16px;margin-bottom:10px}
+.footer-desc{font-size:13px;color:var(--muted);line-height:1.6;max-width:380px}
+.footer-mail{color:inherit;text-decoration:none;border-bottom:1px dotted var(--muted-2);transition:color .2s ease,border-color .2s ease}
+.footer-mail:hover{color:var(--gold-2);border-bottom-color:var(--gold-fade)}
+.footer-links{display:flex;flex-direction:column;gap:8px}
+.footer-links a{font-size:13px;color:var(--muted);transition:color .2s ease}
+.footer-links a:hover{color:var(--gold-2)}
+.footer-socials{display:flex;gap:10px;flex-wrap:wrap}
+.social-btn{width:42px;height:42px;border-radius:12px;border:1px solid rgba(255,212,122,0.20);display:flex;align-items:center;justify-content:center;color:rgba(240,244,255,0.78);transition:all .25s ease;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.015))}
+.social-btn:hover{color:var(--gold-3);border-color:var(--gold-fade);background:linear-gradient(135deg,rgba(240,188,86,.14),rgba(224,136,80,.06));transform:translateY(-2px);box-shadow:0 8px 22px rgba(240,188,86,.18)}
+.social-btn svg{width:18px;height:18px;display:block}
+@media(max-width:760px){.footer-panel{grid-template-columns:1fr;gap:24px}}
+
+/* ===== Sample report card ===== */
+.report-card{margin-top:8px;border:1px solid var(--gold-fade);border-radius:var(--radius);background:linear-gradient(180deg,rgba(20,32,60,.55),rgba(14,24,48,.45));overflow:hidden;position:relative}
+.report-head{display:flex;justify-content:space-between;align-items:center;padding:18px 26px;border-bottom:1px solid var(--line);gap:14px;flex-wrap:wrap}
+.report-tags{display:flex;gap:8px;flex-wrap:wrap}
+.report-tag{padding:5px 11px;border-radius:999px;border:1px solid var(--line);font-size:11px;color:var(--muted);letter-spacing:.06em;background:rgba(0,0,0,.18)}
+.report-tag.dot{color:var(--gold-2);border-color:var(--gold-fade);display:inline-flex;align-items:center;gap:7px}
+.report-tag.dot::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 8px rgba(125,240,167,.6)}
+.report-actions{display:flex;gap:8px;flex-wrap:wrap}
+.report-action{padding:5px 12px;border-radius:6px;font-size:11px;letter-spacing:.06em;color:var(--gold-3);background:linear-gradient(135deg,rgba(240,188,86,.20),rgba(224,136,80,.10));border:1px solid var(--gold-fade)}
+.report-title{padding:22px 26px 12px;font-size:20px;color:var(--text);font-weight:500;line-height:1.35;letter-spacing:-.005em}
+.report-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:6px 14px 18px}
+.report-kpi{padding:14px 12px;border-right:1px solid var(--line)}
+.report-kpi:last-child{border-right:none}
+.report-kpi-label{font-size:10.5px;color:var(--muted);letter-spacing:.10em;text-transform:uppercase;margin-bottom:6px}
+.report-kpi-val{font-size:22px;font-weight:600;color:var(--gold-2);font-feature-settings:"tnum" 1;letter-spacing:-.01em;line-height:1.05;margin-bottom:4px}
+.report-kpi-trend{font-size:11.5px;color:var(--muted-2)}
+.report-kpi-trend.up{color:var(--green)}
+.report-kpi-trend.down{color:#ffa75a}
+.report-chart{padding:0 26px 16px;position:relative}
+.report-chart svg{width:100%;height:140px;display:block}
+.report-chart-label{font-size:10.5px;color:var(--muted-2);letter-spacing:.10em;text-transform:uppercase;margin-top:6px}
+.report-body{padding:0 26px 22px;color:var(--muted);font-size:14px;line-height:1.7}
+.report-body p{margin-bottom:10px}
+.report-body p:last-child{margin-bottom:0}
+.report-fade{background:linear-gradient(180deg,var(--muted) 0%,rgba(184,196,216,.3) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.report-lock{display:flex;align-items:center;gap:18px;padding:18px 26px;border-top:1px solid var(--gold-fade);background:linear-gradient(135deg,rgba(240,188,86,.08),rgba(224,136,80,.03));flex-wrap:wrap}
+.report-lock-icon{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--gold-3),var(--gold-2),var(--copper));color:#1a1410;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;flex-shrink:0;box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 4px 12px rgba(240,188,86,.25)}
+.report-lock-text{flex:1;min-width:200px;font-size:13px;color:var(--muted);line-height:1.55}
+.report-lock-cta{padding:11px 22px;border-radius:999px;background:linear-gradient(135deg,var(--gold-3),var(--gold-2) 35%,var(--gold) 70%,var(--copper));color:#1a1410;font-weight:600;font-size:13px;letter-spacing:.01em;border:none;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease;flex-shrink:0;box-shadow:0 6px 18px rgba(240,188,86,.25),inset 0 1px 0 rgba(255,255,255,.4)}
+.report-lock-cta:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(240,188,86,.4),inset 0 1px 0 rgba(255,255,255,.5)}
+@media(max-width:760px){
+  .report-head{padding:14px 18px}
+  .report-title{padding:18px 18px 10px;font-size:17px}
+  .report-kpis{grid-template-columns:1fr;padding:6px 8px 14px}
+  .report-kpi{border-right:none;border-bottom:1px solid var(--line);padding:12px 16px}
+  .report-kpi:last-child{border-bottom:none}
+  .report-kpi-val{font-size:20px}
+  .report-chart{padding:0 18px 14px}
+  .report-chart svg{height:110px}
+  .report-body{padding:0 18px 18px;font-size:13.5px}
+  .report-lock{padding:16px 18px;gap:14px}
+  .report-lock-text{font-size:12.5px}
+  .report-lock-cta{padding:10px 18px;font-size:12.5px}
+}
+
+/* ===== Voices / testimonials ===== */
+.voices-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+.voice-card{padding:28px 26px;border:1px solid var(--line);border-radius:var(--radius-sm);background:linear-gradient(180deg,rgba(20,32,60,.45),rgba(14,24,48,.30));display:flex;flex-direction:column;gap:18px;position:relative;transition:transform .35s ease,border-color .25s ease,box-shadow .35s ease}
+.voice-card:hover{transform:translateY(-3px);border-color:var(--gold-fade);box-shadow:0 14px 36px rgba(240,188,86,.10)}
+.voice-card.featured{border-color:var(--gold-fade);background:linear-gradient(135deg,rgba(240,188,86,.08),rgba(93,140,196,.04)),linear-gradient(180deg,rgba(20,32,60,.45),rgba(14,24,48,.30))}
+.voice-head{display:flex;align-items:center;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.voice-avatar{flex-shrink:0;width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,rgba(93,140,196,.30),rgba(156,196,240,.18));border:1px solid var(--line);display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:var(--ice);letter-spacing:.04em}
+.voice-avatar.gold{background:linear-gradient(135deg,rgba(240,188,86,.28),rgba(224,136,80,.14));border-color:var(--gold-fade);color:var(--gold-2)}
+.voice-author{display:flex;flex-direction:column;gap:3px;font-style:normal;flex:1;min-width:0}
+.voice-name{font-size:13px;color:var(--text);font-weight:500;letter-spacing:.01em}
+.voice-meta{font-size:11.5px;color:var(--muted-2);letter-spacing:.02em}
+.voice-tier{flex-shrink:0;font-size:10.5px;color:var(--gold-2);background:rgba(240,188,86,.10);border:1px solid var(--gold-fade);padding:4px 10px;border-radius:999px;letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+.voice-card.featured .voice-tier{background:linear-gradient(135deg,rgba(240,188,86,.20),rgba(224,136,80,.10));color:var(--gold-3)}
+.voice-quote{font-size:14.5px;color:var(--text);line-height:1.65;font-style:normal;margin:0;flex:1;letter-spacing:.005em;font-weight:400;position:relative;padding-left:14px}
+.voice-quote::before{content:"\201C";position:absolute;left:-2px;top:-8px;font-family:Georgia,serif;font-size:32px;color:var(--gold-2);opacity:.5;line-height:1}
+.voice-foot{padding-top:12px;border-top:1px solid var(--line);font-size:11.5px;color:var(--muted);letter-spacing:.02em}
+.voice-result{display:inline-flex;align-items:center;gap:8px}
+.voice-result::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 8px rgba(125,240,167,.5)}
+@media(max-width:560px){
+  .voice-head{flex-wrap:wrap;gap:10px}
+  .voice-tier{order:3;font-size:10px;padding:3px 8px}
+  .voice-avatar{width:38px;height:38px;font-size:10.5px}
+}
+@media(max-width:900px){.voices-grid{grid-template-columns:1fr;gap:14px}}
+@media(max-width:560px){.voice-card{padding:22px 20px}.voice-quote{font-size:14px}}
+
+/* ===== SPA pages ===== */
+.page{display:none}
+.page.active{display:block;animation:pcPageIn .42s cubic-bezier(.2,.7,.2,1) both}
+@keyframes pcPageIn{from{opacity:0;transform:translate3d(0,8px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+
+/* ===== Marquee ===== */
+.pc-marquee{padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(135deg,rgba(240,188,86,.03),rgba(224,136,80,.015));overflow:hidden;position:relative;z-index:2;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.pc-marquee-track{display:flex;gap:64px;width:max-content;animation:pcMarquee 38s linear infinite}
+.pc-marquee:hover .pc-marquee-track{animation-play-state:paused}
+.pc-marquee-item{display:inline-flex;align-items:center;gap:14px;font-size:13px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;font-weight:500}
+.pc-marquee-dot{width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,var(--gold-2),var(--copper));box-shadow:0 0 12px rgba(240,188,86,.7);flex-shrink:0}
+.pc-marquee-strong{background:linear-gradient(135deg,var(--gold-3),var(--gold-2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-weight:600;font-feature-settings:"tnum" 1,"lnum" 1}
+@keyframes pcMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ===== 3D Reveal on scroll (more dramatic than basic fade) ===== */
+.pc-reveal{opacity:0;transform:translateY(28px) perspective(800px) rotateX(6deg);transition:opacity .85s cubic-bezier(.2,.7,.2,1),transform .85s cubic-bezier(.2,.7,.2,1);transform-origin:center bottom}
+.pc-reveal.in{opacity:1;transform:translateY(0) perspective(800px) rotateX(0deg)}
+.pc-reveal-delay-1{transition-delay:.06s}
+.pc-reveal-delay-2{transition-delay:.14s}
+.pc-reveal-delay-3{transition-delay:.22s}
+
+/* Scroll progress bar */
+.pc-scroll-progress{position:fixed;top:0;left:0;height:2px;width:0;z-index:1001;background:linear-gradient(90deg,transparent,var(--gold-2),var(--gold-3),var(--copper));transition:width .08s linear;pointer-events:none;box-shadow:0 0 12px rgba(240,188,86,.6)}
+
+/* Data nodes */
+.pc-orbs-layer{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.pc-orb{position:absolute;width:5px;height:5px;border-radius:50%;background:radial-gradient(circle,var(--gold-3) 0%,var(--gold-2) 50%,transparent 100%);box-shadow:0 0 12px rgba(240,188,86,.5);animation:pcOrbBreath 4.6s ease-in-out infinite;will-change:opacity,transform}
+@keyframes pcOrbBreath{0%,100%{opacity:.18;transform:scale(.78)}50%{opacity:.95;transform:scale(1.15)}}
+.pc-orb-1{top:14%;left:10%;animation-delay:0s}
+.pc-orb-2{top:30%;right:14%;animation-delay:.7s;width:4px;height:4px}
+.pc-orb-3{top:54%;left:7%;animation-delay:1.5s}
+.pc-orb-4{bottom:24%;right:9%;animation-delay:2.1s;width:3px;height:3px}
+.pc-orb-5{top:68%;left:42%;animation-delay:.3s;width:6px;height:6px}
+.pc-orb-6{top:11%;right:32%;animation-delay:1.8s;width:3px;height:3px}
+.pc-orb-7{bottom:36%;left:28%;animation-delay:2.6s}
+.pc-orb-8{top:46%;right:6%;animation-delay:1.1s;width:4px;height:4px}
+.pc-orb-9{top:80%;right:30%;animation-delay:3.2s;width:3px;height:3px}
+.pc-orb-10{top:8%;left:40%;animation-delay:.5s;width:4px;height:4px}
+
+/* ===== Hero parallax (scroll-driven) ===== */
+.hero-parallax-slow{transform:translate3d(0,calc(var(--pc-scroll,0)*-0.06px),0);will-change:transform}
+.hero-parallax-fast{transform:translate3d(0,calc(var(--pc-scroll,0)*0.04px),0);will-change:transform}
+.scroll-rotate{transform:rotate(calc(var(--pc-scroll,0)*0.012deg));will-change:transform}
+.scroll-fade{opacity:calc(1 - var(--pc-scroll,0)*0.0008)}
+.scroll-scale{transform:scale(calc(1 - var(--pc-scroll,0)*0.0001));will-change:transform}
+
+/* ===== Performance overrides ===== */
+@media(max-width:900px),(hover:none),(pointer:coarse){
+  .pc-orbs-layer{display:none !important}
+  body{background-attachment:scroll !important}
+  .topbar{backdrop-filter:none}
+  .insight-card,.trust-strip-inner{backdrop-filter:none !important;-webkit-backdrop-filter:none !important}
+  .pc-marquee{animation-duration:60s !important}
+  .pc-reveal{transform:translateY(20px) !important}
+  .pc-reveal.in{transform:none !important}
+  .hero-parallax-slow,.hero-parallax-fast,.scroll-rotate,.scroll-scale{transform:none !important}
+  .scroll-fade{opacity:1 !important}
+}
+@media(prefers-reduced-motion:reduce){
+  .pc-orb,.coin,.coin-glow,.coin-ring,.coin-fire-outer,.bg-glow,.pc-marquee-track,.mesh-lines line,.mesh-nodes circle,.bg-frag{animation:none !important}
+  .pc-reveal{opacity:1 !important;transform:none !important}
+  .hero-parallax-slow,.hero-parallax-fast,.scroll-rotate,.scroll-scale{transform:none !important}
+  .scroll-fade{opacity:1 !important}
+}
+/* Mobile devices: kill the heaviest extras */
+/* On low-end mobiles fall back display fonts to system stack — saves ~600KB of font load */
+.pc-mobile .hero-title,.pc-mobile .section-title,.pc-mobile .about-name,.pc-mobile .proj-name,
+.pc-mobile .method-name,.pc-mobile .how-title,.pc-mobile .plan-tagline,.pc-mobile .tl-title,
+.pc-mobile .calc-title,.pc-mobile .report-title,.pc-mobile .guarantee-title,.pc-mobile .edu-title,
+.pc-mobile .insight-title,.pc-mobile .ba-title,.pc-mobile .proof-title,.pc-mobile .faq-q,
+.pc-mobile .hero-kicker,.pc-mobile .hero-title em,.pc-mobile .section-title em,
+.pc-mobile .nav-logo-text,.pc-mobile .nav-links a{
+  font-family:'Inter','SF Pro Display',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif !important;
+}
+.pc-mobile .nav-logo-text{font-weight:500 !important;letter-spacing:.01em !important;text-transform:none !important;font-size:15px !important}
+.pc-mobile .nav-logo-text strong{font-weight:600}
+.pc-mobile .nav-links a{font-weight:500 !important;letter-spacing:.02em !important;text-transform:none !important;font-size:14px !important}
+.pc-mobile .bg-mesh,.pc-mobile .bg-data,.pc-mobile .pc-orbs-layer{display:none !important}
+.pc-mobile .bg-glow-3,.pc-mobile .bg-glow-4,.pc-mobile .bg-glow-5,.pc-mobile .bg-glow-6{display:none !important}
+.pc-mobile .bg-glow{filter:blur(40px) !important;animation:none !important}
+.pc-mobile .coin-glow{filter:blur(22px) !important;animation:none !important;width:118%;height:118%;opacity:.85 !important;transform:translate(-50%,-50%) !important}
+.pc-mobile .coin{animation:none !important;transform:translate(-50%,-50%) !important}
+.pc-mobile .coin-fire-outer{display:none !important}
+.pc-mobile .coin-ring{animation-duration:36s !important;opacity:.7 !important}
+.pc-mobile .insight-card,.pc-mobile .trust-strip-inner{backdrop-filter:none !important;-webkit-backdrop-filter:none !important;background:linear-gradient(180deg,rgba(20,32,60,.92),rgba(14,24,48,.85)) !important}
+.pc-mobile .topbar{backdrop-filter:blur(6px) !important;-webkit-backdrop-filter:blur(6px) !important;background:rgba(14,24,48,.88) !important}
+.pc-mobile .hero-stats{box-shadow:none !important}
+.pc-mobile body::before,.pc-mobile body::after{display:none !important}
+.pc-mobile .pc-marquee{display:none !important}
+.pc-mobile .pc-reveal{opacity:1 !important;transform:none !important;transition:none !important}
+
+/* Low-end hardware: kill all decorative animations */
+.pc-perf-low .pc-orbs-layer,.pc-perf-low .bg-mesh,.pc-perf-low .bg-data,.pc-perf-low .pc-marquee{display:none !important}
+.pc-perf-low .bg-glow{animation:none !important;filter:blur(35px) !important}
+.pc-perf-low .coin,.pc-perf-low .coin-glow{animation:none !important}
+.pc-perf-low .coin-ring,.pc-perf-low .coin-fire-outer{display:none !important}
+.pc-perf-low body::before,.pc-perf-low body::after{display:none !important}
+.pc-perf-low .pc-reveal{opacity:1 !important;transform:none !important}
+
+/* Firefox: backdrop-filter is heavy, kill it everywhere */
+.pc-firefox .insight-card,.pc-firefox .trust-strip-inner,.pc-firefox .section-shell{backdrop-filter:none !important;-webkit-backdrop-filter:none !important;background:linear-gradient(180deg,rgba(20,32,60,.92),rgba(14,24,48,.88)) !important}
+.pc-firefox .topbar{backdrop-filter:none !important;-webkit-backdrop-filter:none !important;background:rgba(14,24,48,.94)}
+.pc-firefox .pc-orbs-layer,.pc-firefox .bg-mesh{display:none !important}
+.pc-tab-hidden .pc-orb,.pc-tab-hidden .pc-marquee-track,.pc-tab-hidden .coin,.pc-tab-hidden .coin-glow,.pc-tab-hidden .coin-ring,.pc-tab-hidden .coin-fire-outer,.pc-tab-hidden .bg-glow,.pc-tab-hidden .mesh-lines line,.pc-tab-hidden .mesh-nodes circle,.pc-tab-hidden .bg-frag{animation-play-state:paused !important}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#page-home">Перейти к содержимому</a>
+<div class="bg-glow-layer" aria-hidden="true">
+  <span class="bg-glow bg-glow-1"></span>
+  <span class="bg-glow bg-glow-2"></span>
+  <span class="bg-glow bg-glow-3"></span>
+  <span class="bg-glow bg-glow-4"></span>
+  <span class="bg-glow bg-glow-5"></span>
+  <span class="bg-glow bg-glow-6"></span>
+</div>
+<svg class="bg-mesh" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <g class="mesh-lines">
+    <line x1="120" y1="140" x2="320" y2="220"/>
+    <line x1="320" y1="220" x2="500" y2="120"/>
+    <line x1="500" y1="120" x2="680" y2="260"/>
+    <line x1="680" y1="260" x2="850" y2="180"/>
+    <line x1="850" y1="180" x2="1080" y2="280"/>
+    <line x1="120" y1="140" x2="200" y2="380"/>
+    <line x1="200" y1="380" x2="400" y2="450"/>
+    <line x1="400" y1="450" x2="320" y2="220"/>
+    <line x1="400" y1="450" x2="680" y2="260"/>
+    <line x1="400" y1="450" x2="600" y2="600"/>
+    <line x1="600" y1="600" x2="850" y2="180"/>
+    <line x1="600" y1="600" x2="900" y2="700"/>
+    <line x1="900" y1="700" x2="1080" y2="280"/>
+    <line x1="200" y1="380" x2="100" y2="650"/>
+    <line x1="100" y1="650" x2="600" y2="600"/>
+    <line x1="900" y1="700" x2="1100" y2="600"/>
+  </g>
+  <g class="mesh-nodes">
+    <circle cx="120"  cy="140" r="3"/>
+    <circle cx="320"  cy="220" r="2.5"/>
+    <circle cx="500"  cy="120" r="3.5"/>
+    <circle cx="680"  cy="260" r="3"/>
+    <circle cx="850"  cy="180" r="2.5"/>
+    <circle cx="1080" cy="280" r="3"/>
+    <circle cx="200"  cy="380" r="2.5"/>
+    <circle cx="400"  cy="450" r="4"/>
+    <circle cx="600"  cy="600" r="3"/>
+    <circle cx="900"  cy="700" r="3.5"/>
+    <circle cx="100"  cy="650" r="2.5"/>
+    <circle cx="1100" cy="600" r="3"/>
+  </g>
+</svg>
+<div class="bg-data" aria-hidden="true">
+  <div class="bg-frag bg-frag-1">BTC <b>$94,250</b> <i>▲ 2.3%</i></div>
+  <div class="bg-frag bg-frag-2">ETH <b>$3,180</b> <i>▲ 1.7%</i></div>
+  <div class="bg-frag bg-frag-3">0x8a3f…c2e4</div>
+  <div class="bg-frag bg-frag-4">block <b>#876,432</b></div>
+  <div class="bg-frag bg-frag-5">gas <b>24</b> gwei</div>
+  <div class="bg-frag bg-frag-6">SOL <b>$184</b></div>
+</div>
+<div class="page-content">
+
+<div class="topbar">
+  <nav>
+    <a class="nav-logo" href="/" data-route="home">
+      <img class="logo-mark" src="assets/sk-logo.png" alt="СК" width="40" height="40" decoding="async">
+      <span class="nav-logo-text">Personal&nbsp;<strong>Concentrate</strong></span>
+    </a>
+    <button class="nav-burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="primary-nav">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="primary-nav">
+      <a href="/" data-route="home" class="active" id="nav-home">Главная</a>
+      <a href="/projects" data-route="projects" id="nav-projects">Проекты</a>
+      <a href="/about" data-route="about" id="nav-about">О нас</a>
+      <a href="/pricing" data-route="pricing" id="nav-pricing">Доступ</a>
+    </div>
+    <a class="nav-cta" href="/pricing" data-route="pricing" data-cta="nav_pricing">Получить доступ</a>
+  </nav>
+</div>
+
+<!-- ===================== HOME ===================== -->
+<div class="page active" id="page-home">
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-copy hero-parallax-fast">
+        <div class="hero-eyebrow">Ончейн-аналитика · Крипторынок · с 2021</div>
+        <div class="hero-kicker">Private research for disciplined capital</div>
+        <h1 class="hero-title">Решения по&nbsp;данным. Не <em>по&nbsp;сигналам.</em></h1>
+        <p class="hero-subtitle">Приватная ончейн-аналитика крипторынка: еженедельные отчёты, разборы проектов и реальные позиции с открытыми цифрами. Для тех, кто строит капитал системно — без чатов «купи-продай» и обещаний иксов.</p>
+        <div class="hero-proof">
+          <div class="hero-pill"><span class="hp-mark">●</span>Все сделки публичны</div>
+          <div class="hero-pill"><span class="hp-mark">●</span>Без подписок</div>
+          <div class="hero-pill"><span class="hp-mark">●</span>Доступ навсегда</div>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="hero-stat-num">+2573%</div><div class="hero-stat-label">ZEC · с $23 → ~$615</div></div>
+          <div class="hero-stat"><div class="hero-stat-num">+725%</div><div class="hero-stat-label">BTC · с $16,665</div></div>
+          <div class="hero-stat"><div class="hero-stat-num">+74%</div><div class="hero-stat-label">Портфель 2025</div></div>
+        </div>
+        <a class="hero-verify" href="https://ru.tradingview.com/u/PersonalConcentrat/" target="_blank" rel="noopener">
+          <span class="hv-shield" aria-hidden="true">✓</span>
+          <span class="hv-text">Все цифры верифицированы в публичном профиле <strong>TradingView · PersonalConcentrat</strong></span>
+          <span class="hv-arrow" aria-hidden="true">↗</span>
+        </a>
+        <div class="hero-actions">
+          <a class="btn-primary" href="/pricing" data-route="pricing" data-cta="hero_primary">Получить доступ →</a>
+          <a class="btn-secondary" href="/projects" data-route="projects" data-cta="hero_secondary">Смотреть кейсы</a>
+        </div>
+        <div class="hero-anon">Автор анонимен — это осознанный выбор. Доверие строится на проверяемых данных: <a href="https://ru.tradingview.com/u/PersonalConcentrat/" target="_blank" rel="noopener">TradingView</a>, <a href="https://youtube.com/channel/UC2OUHfGPCu87pEEWit9KPLA" target="_blank" rel="noopener">YouTube</a>, <a href="https://t.me/PersonalConcentrate" target="_blank" rel="noopener">Telegram</a>.</div>
+      </div>
+      <div class="hero-side hero-parallax-slow">
+        <div class="coin-stage" aria-hidden="true">
+          <div class="coin-glow"></div>
+          <div class="coin-fire-outer"></div>
+          <div class="coin-ring"></div>
+          <div class="coin"></div>
+        </div>
+        <div class="insight-card">
+          <div class="insight-label"><span>Архитектура решений</span><span class="dot-live">Live</span></div>
+          <div class="insight-title">Капитал оставляет след — мы читаем его раньше рынка.</div>
+          <div class="insight-metric">
+            <div class="metric-box"><strong>4 слоя</strong><span>анализа</span></div>
+            <div class="metric-box"><strong>с 2021</strong><span>в рынке</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trust-strip" aria-label="Подтверждение опыта">
+  <div class="container">
+    <div class="trust-strip-inner">
+      <div class="trust-cell"><div class="trust-cell-num">4+ года</div><div class="trust-cell-label">в крипторынке</div><div class="trust-cell-desc">С 2021 года — два полных цикла, включая медвежий 2022.</div></div>
+      <div class="trust-cell"><div class="trust-cell-num">Публично</div><div class="trust-cell-label">идеи на TradingView</div><div class="trust-cell-desc">Точки входа опубликованы до движения и доступны для проверки.</div></div>
+      <div class="trust-cell"><div class="trust-cell-num">Единоразово</div><div class="trust-cell-label">доступ без подписок</div><div class="trust-cell-desc">Один платёж — доступ сохраняется, пока существует проект.</div></div>
+      <div class="trust-cell"><div class="trust-cell-num">&lt; 24 ч</div><div class="trust-cell-label">отклик в Telegram</div><div class="trust-cell-desc">Ответ на содержательные вопросы в рабочие дни.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-shell">
+      <div class="section-header">
+        <div class="section-eyebrow"><span class="eb-dot"></span>Методология</div>
+        <div class="section-title">Как мы работаем</div>
+        <div class="section-sub">Никаких сигналов и обещаний иксов. Только данные, система и прозрачный результат. Каждое решение проходит через несколько слоёв фильтрации.</div>
+      </div>
+      <div class="method-grid">
+        <div class="method-card"><div class="method-num">01</div><div class="method-name">Ончейн-данные</div><div class="method-desc">Анализируем движение средств на блокчейне до того, как это отражается в цене и попадает в медийный шум.</div></div>
+        <div class="method-card"><div class="method-num">02</div><div class="method-name">Рыночные метрики</div><div class="method-desc">Fear &amp; Greed, Open Interest, финансирование и позиционирование — решения по цифрам, а не по эмоциям.</div></div>
+        <div class="method-card"><div class="method-num">03</div><div class="method-name">Фундаментальный разбор</div><div class="method-desc">Команда, токеномика, конкуренты, реальное использование протокола и вероятность устойчивого спроса.</div></div>
+        <div class="method-card"><div class="method-num">04</div><div class="method-name">Управление рисками</div><div class="method-desc">Покупки на страхе, фиксация на жадности. Размер позиции почти всегда важнее красивой точки входа.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-label="Честная сводка результатов">
+  <div class="container">
+    <div class="section-shell">
+      <div class="section-header">
+        <div class="section-eyebrow"><span class="eb-dot"></span>Честная сводка</div>
+        <div class="section-title">Не одна сделка — <em>а портфель</em></div>
+        <div class="section-sub">ZEC +2573% выглядит ярко, но это одна позиция из четырёх. Ниже — реальная картина по портфелю целиком, со всеми просадками. Без подбора удобных цифр.</div>
+      </div>
+      <div class="honest-card">
+        <div class="honest-grid">
+          <div class="honest-cell">
+            <div class="honest-num gold">+74%</div>
+            <div class="honest-label">Портфель 2025 YTD</div>
+            <div class="honest-desc">Совокупный результат с февраля 2025 — все позиции, без выборки.</div>
+          </div>
+          <div class="honest-cell">
+            <div class="honest-num up">3 из 4</div>
+            <div class="honest-label">прибыльных позиций</div>
+            <div class="honest-desc">ETH +87%, BTC +725%, ZEC +2573%, DASH +340% — все активны.</div>
+          </div>
+          <div class="honest-cell">
+            <div class="honest-num amber">−38%</div>
+            <div class="honest-label">макс. внутридневная просадка</div>
+            <div class="honest-desc">Открытая позиция по ZEC уходила в −38% перед разворотом в +2573%.</div>
+          </div>
+          <div class="honest-cell">
+            <div class="honest-num steel">≈ 12–18 мес</div>
+            <div class="honest-label">средний горизонт сделки</div>
+            <div class="honest-desc">Это не дейтрейдинг. Решения принимаются на месяцы, не на минуты.</div>
+          </div>
+        </div>
+        <div class="honest-foot">
+          <strong>Как читать эти цифры.</strong> Все позиции верифицируются через <a href="https://ru.tradingview.com/u/PersonalConcentrat/" target="_blank" rel="noopener" style="color:var(--gold-2);border-bottom:1px dotted var(--gold-fade)">публичные идеи на TradingView</a>, опубликованные <em>до</em> движения цены. Это не аудированный P&amp;L и не предложение покупки актива — это иллюстрация подхода и его исторический результат на конкретных позициях. Прошлые результаты не гарантируют будущих.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-label="Прозрачность">
+  <div class="container">
+    <div class="section-shell gold">
+      <div class="section-header">
+        <div class="section-eyebrow"><span class="eb-dot"></span>Прозрачность</div>
+        <div class="section-title">Что вы получите — <br>и чего <em>точно</em> не получите</div>
+        <div class="section-sub">Прежде чем присоединиться — посмотрите обе стороны. Чёткие ожидания делают долгосрочную работу спокойной и для вас, и для нас.</div>
+      </div>
+      <div class="anti-grid">
+        <div class="anti-col yes">
+          <div class="anti-head">Что внутри</div>
+          <div class="anti-list">
+            <div class="anti-item"><span class="anti-mark">✓</span><span>Письменные разборы проектов с логикой и ончейн-метриками</span></div>
+            <div class="anti-item"><span class="anti-mark">✓</span><span>Еженедельный обзор рынка с ключевыми сигналами капитала</span></div>
+            <div class="anti-item"><span class="anti-mark">✓</span><span>Реальные позиции, которые мы открываем сами — с цифрами</span></div>
+            <div class="anti-item"><span class="anti-mark">✓</span><span>Образовательные материалы по методологии PC</span></div>
+            <div class="anti-item"><span class="anti-mark">✓</span><span>Приватный чат с участниками сообщества</span></div>
+          </div>
+        </div>
+        <div class="anti-col no">
+          <div class="anti-head">Чего внутри нет</div>
+          <div class="anti-list">
+            <div class="anti-item"><span class="anti-mark">×</span><span>«Сигналов» вида «купи здесь — продай там»</span></div>
+            <div class="anti-item"><span class="anti-mark">×</span><span>Обещаний иксов, гарантированной доходности или быстрых денег</span></div>
+            <div class="anti-item"><span class="anti-mark">×</span><span>Шиллинга монет, реферальных схем и пампов</span></div>
+            <div class="anti-item"><span class="anti-mark">×</span><span>Советов с плечами, фьючерсами и высоким риском</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-label="До и после системы">
+  <div class="container">
+    <div class="section-shell">
+      <div class="section-header">
+        <div class="section-eyebrow"><span class="eb-dot"></span>Что меняется внутри</div>
+        <div class="section-title">До системы — <em>и после</em></div>
+        <div class="section-sub">Не «трейдинг-успех», а спокойствие, дисциплина и понятная рамка решений. Вот как меняется поведение участников на типичной дистанции 3–6 месяцев внутри.</div>
+      </div>
+      <div class="ba-grid">
+        <div class="ba-col ba-before">
+          <div class="ba-head">
+            <span class="ba-tag">До</span>
+            <span class="ba-title">Хаос «торговли по чувству»</span>
+          </div>
+          <ul class="ba-list">
+            <li><span class="ba-icon">↻</span><span>Открыто 30+ Telegram-каналов, FOMO от каждого «сигнала»</span></li>
+            <li><span class="ba-icon">↻</span><span>Сделки на эмоциях: купил на хайпе, продал на страхе</span></li>
+            <li><span class="ba-icon">↻</span><span>Размер позиции «на глаз», без рамки риска</span></li>
+            <li><span class="ba-icon">↻</span><span>Каждое падение — стресс, каждый рост — «надо было больше»</span></li>
+            <li><span class="ba-icon">↻</span><span>Невозможно объяснить себе, почему открыл позицию</span></li>
+          </ul>
+        </div>
+        <div class="ba-arrow" aria-hidden="true">
+          <span class="ba-arrow-line"></span>
+          <span class="ba-arrow-head">→</span>
+          <span class="ba-arrow-label">3–6 мес. внутри</span>
+        </div>
+        <div class="ba-col ba-after">
+          <div class="ba-head">
+            <span class="ba-tag">После</span>
+            <span class="ba-title">Системная работа с капиталом</span>
+          </div>
+          <ul class="ba-list">
+            <li><span class="ba-icon">✓</span><span>Один отчёт в неделю — достаточно для принятия решений</span></li>
+            <li><span class="ba-icon">✓</span><span>Решения на основе ончейн-данных и метрик, не эмоций</span></li>
+            <li><span class="ba-icon">✓</span><span>Размер позиции = функция риска, не настроения</span></li>
+            <li><span class="ba-icon">✓</span><span>Просадки не пугают — есть рамка, есть план</span></li>
+            <li><span class="ba-icon">✓</span><span>Каждая сделка имеет логику, которую можно повторить</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-label="Открытые источники">
+  <div class="container">
+    <div class="section-shell">
+      <div class="section-header">
+        <div class="section-eyebrow"><span class="eb-dot"></span>Открытые источники</div>
+        <div class="section-title">Доверие — <em>не на словах</em></div>
+        <div class="section-sub">Прежде чем принимать решение — проверьте всё сами. Материалы и сделки публичны и открыты.</div>
+      </div>
+      <div class="proof-grid">
+        <a class="proof-card" href="https://ru.tradingview.com/u/PersonalConcentrat/" target="_blank" rel="noopener">
+          <div class="proof-head"><div class="proof-icon">TV</div><div class="proof-title">TradingView</div></div>
+          <div class="proof-text">Публичный профиль с историей сделок, точками входа и закрытий. Каждая позиция — с верифицированной датой.</div>
+          <div class="proof-link">Открыть профиль <span>↗</span></div>
+        </a>
+        <a class="proof-card" href="https://youtube.com/channel/UC2OUHfGPCu87pEEWit9KPLA" target="_blank" rel="noopener">
+          <div class="proof-head"><div class="proof-icon">YT</div><div class="proof-title">YouTube</div></div>
+          <div class="proof-text">Видео-разборы проектов, обзоры рынка и публичные итоги решений. Архив открыт всем.</div>
+          <div class="proof-link">Открыть канал <span>↗</span></div>
+        </a>
+        <a class="proof-card" href="https://t.me/PersonalConcentrate" target="_blank" rel="noopener">
+          <div class="proof-head"><div class="proof-icon">TG</div><div class="proof-title">Telegram</div></div>
+          <div class="proof-text">Прямой контакт перед решением. Можно задать любые вопросы, попросить пример отчёта и получить ответ от автора.</div>
+          <div class="proof-link">Написать в Telegram <span>↗</span></div>
+        </a>
+      </div>
+      <div class="proof-note">Закрытый круг — это вход в системную работу с данными. Базовые материалы открыты, чтобы вы могли убедиться в подходе прежде, чем присоединиться.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-label="Пример отчёта">
+  <div class="container">
+    <div class="section-shell">
+      <div class="section-header">
+        <div class="section-eyebrow"><span class="eb-dot"></span>Один день из закрытого канала</div>
+        <div class="section-title">Так выглядит <em>внутренний разбор</em></div>
+        <div class="section-sub">Не «купи / продай», а данные, которые можно проверить, и логика, которую можно повторить.</div>
+      </div>
+      <div class="report-card">
+        <div class="report-head">
+          <div class="report-tags">
+            <span class="report-tag dot">21 апреля · Pro</span>
+            <span class="report-tag">ETH · Ончейн</span>
+          </div>
+          <div class="report-actions">
+            <span class="report-action">Лонг</span>
+            <span class="report-action">Среднесрок</span>
+          </div>
+        </div>
+        <div class="report-title">Ethereum: отток с бирж ускорился, риск-профиль остаётся в нашу сторону</div>
+        <div class="report-kpis">
+          <div class="report-kpi"><div class="report-kpi-label">Отток с бирж · 7д</div><div class="report-kpi-val">−312k ETH</div><div class="report-kpi-trend up">▲ 24% к среднему</div></div>
+          <div class="report-kpi"><div class="report-kpi-label">Fear &amp; Greed</div><div class="report-kpi-val">36</div><div class="report-kpi-trend">страх</div></div>
+          <div class="report-kpi"><div class="report-kpi-label">Funding · бессрочные</div><div class="report-kpi-val">−0.012%</div><div class="report-kpi-trend down">шорты переплачивают</div></div>
+        </div>
+        <div class="report-chart" aria-hidden="true">
+          <svg viewBox="0 0 600 140" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="rcGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="rgba(240,188,86,0.45)"/>
+                <stop offset="100%" stop-color="rgba(240,188,86,0)"/>
+              </linearGradient>
+            </defs>
+            <path d="M0,110 L40,108 L80,102 L120,96 L160,98 L200,90 L240,82 L280,86 L320,72 L360,60 L400,52 L440,46 L480,38 L520,30 L560,24 L600,18 L600,140 L0,140 Z" fill="url(#rcGrad)"/>
+            <path d="M0,110 L40,108 L80,102 L120,96 L160,98 L200,90 L240,82 L280,86 L320,72 L360,60 L400,52 L440,46 L480,38 L520,30 L560,24 L600,18" fill="none" stroke="#ffd47a" stroke-width="1.6" stroke-linejoin="round"/>
+            <circle cx="600" cy="18" r="4" fill="#ffd47a"/>
+            <circle cx="600" cy="18" r="9" fill="rgba(255,212,122,0.22)"/>
+          </svg>
+          <div class="report-chart-label">ETH на биржах · 90 дней</div>
+        </div>
+        <div class="report-body">
+          <p>Чистый отток ETH с централизованных бирж за неделю — 312 тысяч монет, что на 24% выше среднего за квартал. Параллельно растёт доля ETH, заблокированной в стейкинге и L2-протоколах. Это поведение долгосрочных держателей, а не торговая активность.</p>
+          <p>Funding на бессрочных контрактах ушёл в отрицательную зону: шорты платят лонгам — рынок настроен скептически, что само по себе является контр-сигналом. Fear &amp; Greed на 36 — пограничная зона страха.</p>
+          <p class="report-fade">Сочетание трёх метрик исторически предшествовало разворотам в течение 14–28 дней. Наша позиция…</p>
+        </div>
+        <div class="report-lock">
+          <div class="report-lock-icon">●</div>
+          <div class="report-lock-text">Полная аналитика, точки наблюдения и параметры позиции — для участников канала.</div>
+          <a class="report-lock-cta" href="/pricing" data-route="pricing" data-cta="report_unlock">Открыть доступ →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-label="Голоса участников">
+  <div class="container">
+    <div class="section-shell">
+      <div class="section-header">
+        <div class="section-eyebrow"><span class="eb-dot"></span>Голоса участников</div>
+        <div class="section-title">Тихие отзывы — <em>от тех, кто уже внутри</em></div>
+        <div class="section-sub">Имена и каналы скрыты по просьбе участников — крипто-инвесторы редко согласны на публичность капитала. Перед оплатой можно <a href="https://t.me/PersonalConcentrate?start=verify" target="_blank" rel="noopener" style="color:var(--gold-2);border-bottom:1px dotted var(--gold-fade)">запросить контакт текущего участника напрямую через Telegram</a> — мы соединим вас по согласованию сторон.</div>
+      </div>
+      <div class="voices-grid">
+        <figure class="voice-card">
+          <div class="voice-head">
+            <span class="voice-avatar" aria-hidden="true">И·П</span>
+            <div class="voice-author">
+              <span class="voice-name">Самостоятельный инвестор</span>
+              <span class="voice-meta">Санкт-Петербург · IT · портфель ~$40k</span>
+            </div>
+            <span class="voice-tier">Pro · 4 мес.</span>
+          </div>
+          <blockquote class="voice-quote">За четыре месяца внутри перестал торговать на эмоциях. Раз в неделю смотрю отчёт — и в основном просто держу позиции. Спокойствие — это и есть результат.</blockquote>
+          <div class="voice-foot">
+            <span class="voice-result">Меньше сделок, больше дисциплины</span>
+          </div>
+        </figure>
+        <figure class="voice-card featured">
+          <div class="voice-head">
+            <span class="voice-avatar gold" aria-hidden="true">У·К</span>
+            <div class="voice-author">
+              <span class="voice-name">Управляющий частным капиталом</span>
+              <span class="voice-meta">Москва · независимый advisor · AUM $1.5M+</span>
+            </div>
+            <span class="voice-tier">Elite · с 2023</span>
+          </div>
+          <blockquote class="voice-quote">Платил за десяток сигнальных каналов. Здесь впервые увидел методологию, а не «вот точка входа». ZEC взял по логике из разбора — и понял, почему. Это другое качество мышления.</blockquote>
+          <div class="voice-foot">
+            <span class="voice-result">ZEC по разбору · среднесрочная позиция</span>
+          </div>
+        </figure>
+        <figure class="voice-card">
+          <div class="voice-head">
+            <span class="voice-avatar" aria-hidden="true">Д·А</span>
+            <div class="voice-author">
+              <span class="voice-name">Долгосрочный держатель</span>
+              <span class="voice-meta">Алматы · фриланс-разработчик · BTC + ETH</span>
+            </div>
+            <span class="voice-tier">Pro · 8 мес.</span>
+          </div>
+          <blockquote class="voice-quote">Ценю, что нет шума и обещаний. Один отчёт в неделю, реальные позиции с цифрами, чёткие границы того, что делаем и чего не делаем. Подача — как у нормального аналитического продукта.</blockquote>
+          <div class="voice-foot">
+            <span class="voice-result">Чёткая рамка для собственных решений</span>
+          </div>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-panel">
+    <div>
+      <div class="footer-brand">
+        <img class="logo-mark" style="width:26px;height:26px" src="assets/sk-logo.png" alt="СК" loading="lazy" decoding="async" width="26" height="26">
+        Personal Concentrate
+      </div>
+      <div class="footer-desc">Ончейн-аналитика для тех, кто принимает решения по данным — без эмоций и шума.</div>
+    </div>
+    <div class="footer-links">
+      <a href="/" data-route="home">Главная</a>
+      <a href="/projects" data-route="projects">Проекты</a>
+      <a href="/about" data-route="about">О нас</a>
+      <a href="/pricing" data-route="pricing">Доступ</a>
+    </div>
+    <div class="footer-socials">
+      <a class="social-btn" href="https://t.me/PersonalConcentrate" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M23.11 4.49C23.43 2.94 21.91 1.66 20.43 2.23L2.34 9.22C.69 9.85.62 12.16 2.23 12.9l3.94 1.81 1.87 6.56c.1.34.37.6.71.69.34.09.71-.01.96-.26l2.89-2.89 4.04 3.03c1.17.88 2.86.24 3.16-1.2L23.11 4.49Z"/></svg></a>
+      <a class="social-btn" href="https://www.tiktok.com/@personalconcentrat" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M19.59 6.69a4.79 4.79 0 0 1-3.77-1.88v8.4a5.72 5.72 0 1 1-5.72-5.72c.18 0 .35.01.53.02v2.82a2.92 2.92 0 1 0 2.39 2.88V2h2.8a4.8 4.8 0 0 0 3.77 4.69Z"/></svg></a>
+      <a class="social-btn" href="https://youtube.com/channel/UC2OUHfGPCu87pEEWit9KPLA" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M23.5 6.2a3 3 0 0 0-2.11-2.12C19.49 3.5 12 3.5 12 3.5s-7.49 0-9.39.58A3 3 0 0 0 .5 6.2 31.26 31.26 0 0 0 0 12a31.26 31.26 0 0 0 .5 5.8 3 3 0 0 0 2.11 2.12C4.51 20.5 12 20.5 12 20.5s7.49 0 9.39-.58a3 3 0 0 0 2.11-2.12A31.26 31.26 0 0 0 24 12a31.26 31.26 0 0 0-.5-5.8ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z"/></svg></a>
+      <a class="social-btn" href="https://ru.tradingview.com/u/PersonalConcentrat/" target="_blank" rel="noopener" aria-label="TradingView"><svg viewBox="0 0 48 48" aria-hidden="true"><polygon fill="currentColor" points="4.5 14.453 4.5 22.273 11.865 22.273 11.865 33.547 19.685 33.547 19.685 14.453"/><polygon fill="currentColor" points="26.202 33.547 34.326 14.453 43.5 14.453 35.376 33.547"/><circle fill="currentColor" cx="25.84" cy="18.36" r="3.91"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+<!-- ===================== PROJECTS ===================== -->
+<div class="page" id="page-projects">
+
+<section class="section">
+  <div class="container">
+    <div class="section-shell">
+      <div class="section-header">
+        <div class="section-eyebrow"><span class="eb-dot"></span>Проекты</div>
+        <div class="section-title">Реальные сделки — <br><em>открытые результаты</em></div>
+        <div class="section-sub">Каждый кейс — реальная позиция с прозрачной логикой входа и верифицированными цифрами.</div>
+      </div>
+
+      <!-- Trade Timeline -->
+      <div class="tl-card" aria-label="Хронология ключевых сделок">
+        <div class="tl-head">
+          <div>
+            <div class="tl-eyebrow">Хронология ключевых позиций</div>
+            <div class="tl-title">2022 → 2025 · открытая история сделок</div>
+          </div>
+          <a class="tl-link" href="https://ru.tradingview.com/u/PersonalConcentrat/" target="_blank" rel="noopener">Полная история на TradingView ↗</a>
+        </div>
+        <div class="tl-track" role="list">
+          <span class="tl-line"></span>
+          <span class="tl-line-glow"></span>
+          <div class="tl-point" role="listitem" style="--tl-pos:6%">
+            <span class="tl-dot"></span>
+            <div class="tl-card-mini">
+              <div class="tl-mini-head"><span class="tl-asset">BTC</span><span class="tl-date">Дек 2022</span></div>
+              <div class="tl-mini-price">$16,665 → $114k+</div>
+              <div class="tl-mini-result">+725%</div>
+            </div>
+          </div>
+          <div class="tl-point" role="listitem" style="--tl-pos:30%">
+            <span class="tl-dot"></span>
+            <div class="tl-card-mini">
+              <div class="tl-mini-head"><span class="tl-asset">ETH</span><span class="tl-date">Q2 2023</span></div>
+              <div class="tl-mini-price">$1,500 → ~$2,800</div>
+              <div class="tl-mini-result">+87%</div>
+            </div>
+          </div>
+          <div class="tl-point" role="listitem" style="--tl-pos:54%">
+            <span class="tl-dot"></span>
+            <div class="tl-card-mini">
+              <div class="tl-mini-head"><span class="tl-asset">DASH</span><span class="tl-date">Q3 2023</span></div>
+              <div class="tl-mini-price">$20 → ~$88</div>
+              <div class="tl-mini-result">+340%</div>
+            </div>
+          </div>
+          <div class="tl-point tl-point-hero" role="listitem" style="--tl-pos:84%">
+            <span class="tl-dot tl-dot-pulse"></span>
+            <div class="tl-card-mini tl-card-hero">
+              <div class="tl-mini-head"><span class="tl-asset">ZEC</span><span class="tl-date">Q1 2025</span></div>
+              <div class="tl-mini-price">$23 → ~$615</div>
+              <div class="tl-mini-result">+2573%</div>
+            </div>
+          </div>
+        </div>
+        <div class="tl-foot">
+          <div class="tl-foot-cell"><span class="tl-foot-num">4</span><span class="tl-foot-lbl">активные позиции</span></div>
+          <div class="tl-foot-cell"><span class="tl-foot-num">+$28,089</span><span class="tl-foot-lbl">плавающая прибыль</span></div>
+          <div class="tl-foot-cell"><span class="tl-foot-num">+74%</span><span class="tl-foot-lbl">портфель 2025 YTD</span></div>
+          <div class="tl-foot-cell"><span class="tl-foot-num">−38%</span><span class="tl-foot-lbl">макс. просадка позиций</span></div>
+        </div>
+      </div>
+      <div class="projects-grid">
+        <div class="project-row open" onclick="this.classList.toggle('open')">
+          <div class="project-header">
+            <div class="proj-icon">Z</div>
+            <div class="proj-info"><div class="proj-name">Zcash (ZEC) — вход на историческом дне</div><div class="proj-meta">Вход $23 · Текущая ~$615 · Позиция активна</div></div>
+            <div class="proj-result"><div class="proj-pct">+2573%</div><div class="proj-pct-label">от точки входа</div></div>
+            <span class="proj-arrow">▼</span>
+          </div>
+          <div class="proj-expand">
+            <div class="proj-highlight">Потенциал до исторических максимумов: +3000% — позиция всё ещё открыта.</div>
+            <div class="proj-steps">
+              <div class="proj-step"><div class="proj-step-label">Точка входа</div><div class="proj-step-val">$23</div></div>
+              <div class="proj-step"><div class="proj-step-label">Текущая</div><div class="proj-step-val">~$615</div></div>
+              <div class="proj-step"><div class="proj-step-label">Рост</div><div class="proj-step-val g">+2573%</div></div>
+            </div>
+            <div class="proj-logic"><strong>Логика входа:</strong> ZEC на абсолютном историческом минимуме после 7-летнего даунтренда. Ончейн — накопление крупными адресами при нулевом интересе ретейла. Фундаментал сохранялся: команда, протокол, технология конфиденциальности.</div>
+            <div class="proj-logic"><strong>Управление:</strong> Небольшой размер входа с учётом риска. Удержание без усреднения вверх. $274 инвестировано → $12,610+ прибыль.</div>
+            <div class="proj-tags"><span class="proj-tag">Исторический минимум</span><span class="proj-tag">Ончейн-накопление</span><span class="proj-tag">Долгосрочный разворот</span></div>
+          </div>
+        </div>
+        <div class="project-row" onclick="this.classList.toggle('open')">
+          <div class="project-header">
+            <div class="proj-icon">₿</div>
+            <div class="proj-info"><div class="proj-name">Bitcoin (BTC) — покупка на медвежьем дне</div><div class="proj-meta">Вход $16,665 · Текущая ~$114,400 · Позиция активна</div></div>
+            <div class="proj-result"><div class="proj-pct">+725%</div><div class="proj-pct-label">от точки входа</div></div>
+            <span class="proj-arrow">▼</span>
+          </div>
+          <div class="proj-expand">
+            <div class="proj-steps">
+              <div class="proj-step"><div class="proj-step-label">Точка входа</div><div class="proj-step-val">$16,665</div></div>
+              <div class="proj-step"><div class="proj-step-label">Текущая</div><div class="proj-step-val">~$114,400</div></div>
+              <div class="proj-step"><div class="proj-step-label">Рост</div><div class="proj-step-val g">+725%</div></div>
+            </div>
+            <div class="proj-logic"><strong>Логика входа:</strong> BTC на $16–17K — зона многолетней поддержки + пик «экстремального страха». Ончейн фиксировал накопление китов при уходе ретейла. Классический разворотный паттерн по методологии PC.</div>
+            <div class="proj-tags"><span class="proj-tag">Fear &amp; Greed</span><span class="proj-tag">Ончейн-сигнал</span><span class="proj-tag">Долгосрочная позиция</span></div>
+          </div>
+        </div>
+        <div class="project-row" onclick="this.classList.toggle('open')">
+          <div class="project-header">
+            <div class="proj-icon">Ξ</div>
+            <div class="proj-info"><div class="proj-name">Ethereum (ETH) — накопление в медвежьей фазе</div><div class="proj-meta">Вход $1,500 · Текущая ~$2,800 · Позиция активна</div></div>
+            <div class="proj-result"><div class="proj-pct">+87%</div><div class="proj-pct-label">от точки входа</div></div>
+            <span class="proj-arrow">▼</span>
+          </div>
+          <div class="proj-expand">
+            <div class="proj-steps">
+              <div class="proj-step"><div class="proj-step-label">Точка входа</div><div class="proj-step-val">$1,500</div></div>
+              <div class="proj-step"><div class="proj-step-label">Текущая</div><div class="proj-step-val">~$2,800</div></div>
+              <div class="proj-step"><div class="proj-step-label">Рост</div><div class="proj-step-val g">+87%</div></div>
+            </div>
+            <div class="proj-logic"><strong>Логика входа:</strong> Отток ETH с бирж на холодные кошельки — сигнал удержания, не продажи. Накопление при максимальном пессимизме. Крупнейшая позиция портфеля (85%). Прибыль $13,090+.</div>
+            <div class="proj-tags"><span class="proj-tag">Биржевой отток</span><span class="proj-tag">Ончейн-накопление</span><span class="proj-tag">Основная позиция</span></div>
+          </div>
+        </div>
+        <div class="project-row" onclick="this.classList.toggle('open')">
+          <div class="project-header">
+            <div class="proj-icon">D</div>
+            <div class="proj-info"><div class="proj-name">Dash (DASH) — спекулятивный разворот</div><div class="proj-meta">Вход $20 · Текущая ~$88 · Позиция активна</div></div>
+            <div class="proj-result"><div class="proj-pct">+340%</div><div class="proj-pct-label">от точки входа</div></div>
+            <span class="proj-arrow">▼</span>
+          </div>
+          <div class="proj-expand">
+            <div class="proj-steps">
+              <div class="proj-step"><div class="proj-step-label">Точка входа</div><div class="proj-step-val">$20</div></div>
+              <div class="proj-step"><div class="proj-step-label">Текущая</div><div class="proj-step-val">~$88</div></div>
+              <div class="proj-step"><div class="proj-step-label">Рост</div><div class="proj-step-val g">+340%</div></div>
+            </div>
+            <div class="proj-logic"><strong>Логика:</strong> Малая спекулятивная позиция (4% портфеля) на многолетнем минимуме. Ончейн-накопление + техническая поддержка. Пример правильной аллокации в высокорисковые активы.</div>
+            <div class="proj-tags"><span class="proj-tag">Спекулятивная позиция</span><span class="proj-tag">Малая аллокация</span><span class="proj-tag">Техподдержка</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="summary-row">
+        <div class="sum-cell"><div class="sum-label">Лучшая сделка</div><div class="sum-val">ZEC +2573%</div></div>
+        <div class="sum-cell"><div class="sum-label">BTC от входа</div><div class="sum-val">+725%</div></div>
+        <div class="sum-cell"><div class="sum-label">Общая прибыль</div><div class="sum-val">+$28,089</div></div>
+        <div class="sum-cell"><div class="sum-label">Портфель 2025</div><div class="sum-val">+74%</div></div>
+      </div>
+      <a class="tv-block" href="https://ru.tradingview.com/u/PersonalConcentrat/" target="_blank" rel="noopener">
+        <div class="tv-live"></div>
+        <div class="tv-text"><div class="tv-name">Публичный портфель на TradingView</div><div class="tv-sub">PersonalConcentrat — история сделок в открытом доступе</div></div>
+        <span class="tv-arrow">↗</span>
+      </a>
+
+      <!-- Calculator -->
+      <div class="calc" aria-label="Калькулятор гипотетической прибыли">
+        <div class="calc-head">
+          <div class="calc-eyebrow">Калькулятор · иллюстрация</div>
+          <div class="calc-title">Если бы вы зашли по этой логике</div>
+          <div class="calc-sub">Введите гипотетическую сумму входа в каждую сделку. Это <em>не</em> прогноз — это арифметика по уже состоявшимся точкам входа из публичного TradingView.</div>
+        </div>
+        <div class="calc-body">
+          <div class="calc-input-wrap">
+            <label class="calc-label" for="calc-amount">Сумма на одну позицию</label>
+            <div class="calc-input-row">
+              <span class="calc-prefix">$</span>
+              <input id="calc-amount" class="calc-input" type="number" min="100" max="100000" step="100" value="1000" inputmode="numeric">
+            </div>
+            <div class="calc-presets">
+              <button type="button" class="calc-preset" data-val="500">$500</button>
+              <button type="button" class="calc-preset" data-val="1000">$1 000</button>
+              <button type="button" class="calc-preset" data-val="5000">$5 000</button>
+              <button type="button" class="calc-preset" data-val="10000">$10 000</button>
+            </div>
+          </div>
+          <div class="calc-results" id="calc-results">
+            <div class="calc-row" data-pct="2573" data-asset="ZEC">
+              <div class="calc-row-asset"><span class="calc-row-icon">Z</span><span><span class="calc-row-name">Zcash</span><span class="calc-row-meta">+2573% · вход $23</span></span></div>
+              <div class="calc-row-result"><div class="calc-row-val">$0</div><div class="calc-row-bar"><span class="calc-row-bar-fill" style="--w:100%"></span></div></div>
+            </div>
+            <div class="calc-row" data-pct="725" data-asset="BTC">
+              <div class="calc-row-asset"><span class="calc-row-icon">₿</span><span><span class="calc-row-name">Bitcoin</span><span class="calc-row-meta">+725% · вход $16,665</span></span></div>
+              <div class="calc-row-result"><div class="calc-row-val">$0</div><div class="calc-row-bar"><span class="calc-row-bar-fill" style="--w:32%"></span></div></div>
+            </div>
+            <div class="calc-row" data-pct="340" data-asset="DASH">
+              <div class="calc-row-asset"><span class="calc-row-icon">D</span><span><span class="calc-row-name">Dash</span><span class="calc-row-meta">+340% · вход $20</span></span></div>
+              <div class="calc-row-result"><div class="calc-row-val">$0</div><div class="calc-row-bar"><span class="calc-row-bar-fill" style="--w:16%"></span></div></div>
+            </div>
+            <div class="calc-row" data-pct="87" data-asset="ETH">
+              <div class="calc-row-asset"><span class="calc-row-icon">Ξ</span><span><span class="calc-row-name">Ethereum</span><span class="calc-row-meta">+87% · вход $1,500</span></span></div>
+              <div class="calc-row-result"><div class="calc-row-val">$0</div><div class="calc-row-bar"><span class="calc-row-bar-fill" style="--w:5%"></span></div></div>
+            </div>
+            <div class="calc-total">
+              <div class="calc-total-label">Итог по 4 позициям</div>
+              <div class="calc-total-val" id="calc-total">$0</div>
+            </div>
+          </div>
+        </div>
+        <div class="calc-disclaimer">Расчёт построен на исторических точках входа из публичного TradingView. Это иллюстрация работы методологии — не предложение и не прогноз. Прошлые результаты не гарантируют будущих.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="disclaimer">Все результаты верифицированы через TradingView (PersonalConcentrat). Прошлые результаты не гарантируют будущей доходности. Информация носит образовательный характер.</div>
+
+<footer>
+  <div class="footer-panel">
+    <div>
+      <div class="footer-brand"><img class="logo-mark" style="width:26px;height:26px" src="assets/sk-logo.png" alt="СК" loading="lazy" decoding="async" width="26" height="26">Personal Concentrate</div>
+      <div class="footer-desc"><a class="footer-mail" href="mailto:personal.concentrate@gmail.com">personal.concentrate@gmail.com</a></div>
+    </div>
+    <div class="footer-links"><a href="/" data-route="home">Главная</a><a href="/projects" data-route="projects">Проекты</a><a href="/about" data-route="about">О нас</a><a href="/pricing" data-route="pricing">Доступ</a></div>
+    <div class="footer-socials">
+      <a class="social-btn" href="https://t.me/PersonalConcentrate" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M23.11 4.49C23.43 2.94 21.91 1.66 20.43 2.23L2.34 9.22C.69 9.85.62 12.16 2.23 12.9l3.94 1.81 1.87 6.56c.1.34.37.6.71.69.34.09.71-.01.96-.26l2.89-2.89 4.04 3.03c1.17.88 2.86.24 3.16-1.2L23.11 4.49Z"/></svg></a>
+      <a class="social-btn" href="https://www.tiktok.com/@personalconcentrat" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M19.59 6.69a4.79 4.79 0 0 1-3.77-1.88v8.4a5.72 5.72 0 1 1-5.72-5.72c.18 0 .35.01.53.02v2.82a2.92 2.92 0 1 0 2.39 2.88V2h2.8a4.8 4.8 0 0 0 3.77 4.69Z"/></svg></a>
+      <a class="social-btn" href="https://youtube.com/channel/UC2OUHfGPCu87pEEWit9KPLA" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M23.5 6.2a3 3 0 0 0-2.11-2.12C19.49 3.5 12 3.5 12 3.5s-7.49 0-9.39.58A3 3 0 0 0 .5 6.2 31.26 31.26 0 0 0 0 12a31.26 31.26 0 0 0 .5 5.8 3 3 0 0 0 2.11 2.12C4.51 20.5 12 20.5 12 20.5s7.49 0 9.39-.58a3 3 0 0 0 2.11-2.12A31.26 31.26 0 0 0 24 12a31.26 31.26 0 0 0-.5-5.8ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z"/></svg></a>
+      <a class="social-btn" href="https://ru.tradingview.com/u/PersonalConcentrat/" target="_blank" rel="noopener" aria-label="TradingView"><svg viewBox="0 0 48 48" aria-hidden="true"><polygon fill="currentColor" points="4.5 14.453 4.5 22.273 11.865 22.273 11.865 33.547 19.685 33.547 19.685 14.453"/><polygon fill="currentColor" points="26.202 33.547 34.326 14.453 43.5 14.453 35.376 33.547"/><circle fill="currentColor" cx="25.84" cy="18.36" r="3.91"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+<!-- ===================== ABOUT ===================== -->
+<div class="page" id="page-about">
+
+<section class="section">
+  <div class="container">
+    <div class="about-hero">
+      <div class="about-left">
+        <div class="about-coin-wrap">
+          <div class="coin-stage" aria-hidden="true">
+            <div class="coin-glow"></div>
+            <div class="coin-fire-outer"></div>
+            <div class="coin-ring"></div>
+            <div class="coin"></div>
+          </div>
+        </div>
+        <div class="about-name">Архитектор сигнала</div>
+        <div class="about-role">Символ бренда · Ончейн-аналитик · В рынке с 2021 года</div>
+        <div class="about-manifesto">
+          Мы не рассказываем, кто мы — <em>мы показываем, что делаем.</em><br><br>
+          Публичный портфель на TradingView, открытая история сделок и результаты в цифрах говорят лучше любой биографии. Анонимность — это не скрытность. Это фокус на том, что важно: на данных, методе и результате.
+        </div>
+        <a class="tv-block" style="max-width:520px" href="https://ru.tradingview.com/u/PersonalConcentrat/" target="_blank" rel="noopener">
+          <div class="tv-live"></div>
+          <div class="tv-text"><div class="tv-name">Публичный портфель на TradingView</div><div class="tv-sub">PersonalConcentrat — история сделок открыта</div></div>
+          <span class="tv-arrow">↗</span>
+        </a>
+      </div>
+      <div class="about-right">
+        <div class="about-stat-card"><div class="about-stat-row"><span class="about-stat-name">ZEC от входа $23</span><span class="about-stat-val">+2573%</span></div><div class="about-stat-bar"><div class="about-stat-bar-fill" style="width:98%"></div></div></div>
+        <div class="about-stat-card"><div class="about-stat-row"><span class="about-stat-name">BTC от входа $16,665</span><span class="about-stat-val">+725%</span></div><div class="about-stat-bar"><div class="about-stat-bar-fill" style="width:72%"></div></div></div>
+        <div class="about-stat-card"><div class="about-stat-row"><span class="about-stat-name">DASH от входа $20</span><span class="about-stat-val">+340%</span></div><div class="about-stat-bar"><div class="about-stat-bar-fill" style="width:48%"></div></div></div>
+        <div class="about-stat-card"><div class="about-stat-row"><span class="about-stat-name">Портфель 2025 (с февраля)</span><span class="about-stat-val">+74%</span></div><div class="about-stat-bar"><div class="about-stat-bar-fill" style="width:32%"></div></div></div>
+      </div>
+    </div>
+
+    <div class="section-shell">
+      <div class="section-header">
+        <div class="section-eyebrow"><span class="eb-dot"></span>Подход</div>
+        <div class="section-title">Как мы работаем</div>
+        <div class="section-sub">Системный подход к ончейн-данным, рынку, фундаменталу и риску. Без эмоций, без спешки, без сигналов.</div>
+      </div>
+      <div class="method-grid">
+        <div class="method-card"><div class="method-num">01</div><div class="method-name">Ончейн-данные</div><div class="method-desc">Движение средств на блокчейне — до того, как это видно в цене.</div></div>
+        <div class="method-card"><div class="method-num">02</div><div class="method-name">Рыночные метрики</div><div class="method-desc">Fear &amp; Greed, OI, финансирование. Данные, не эмоции.</div></div>
+        <div class="method-card"><div class="method-num">03</div><div class="method-name">Фундаментальный анализ</div><div class="method-desc">Команда, токеномика, конкуренты, реальное использование.</div></div>
+        <div class="method-card"><div class="method-num">04</div><div class="method-name">Управление рисками</div><div class="method-desc">Размер позиции важнее точки входа. Системный подход.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-panel">
+    <div>
+      <div class="footer-brand"><img class="logo-mark" style="width:26px;height:26px" src="assets/sk-logo.png" alt="СК" loading="lazy" decoding="async" width="26" height="26">Personal Concentrate</div>
+      <div class="footer-desc">Ончейн-аналитика для тех, кто принимает решения по данным.</div>
+    </div>
+    <div class="footer-links"><a href="/" data-route="home">Главная</a><a href="/projects" data-route="projects">Проекты</a><a href="/about" data-route="about">О нас</a><a href="/pricing" data-route="pricing">Доступ</a></div>
+    <div class="footer-socials">
+      <a class="social-btn" href="https://t.me/PersonalConcentrate" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M23.11 4.49C23.43 2.94 21.91 1.66 20.43 2.23L2.34 9.22C.69 9.85.62 12.16 2.23 12.9l3.94 1.81 1.87 6.56c.1.34.37.6.71.69.34.09.71-.01.96-.26l2.89-2.89 4.04 3.03c1.17.88 2.86.24 3.16-1.2L23.11 4.49Z"/></svg></a>
+      <a class="social-btn" href="https://www.tiktok.com/@personalconcentrat" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M19.59 6.69a4.79 4.79 0 0 1-3.77-1.88v8.4a5.72 5.72 0 1 1-5.72-5.72c.18 0 .35.01.53.02v2.82a2.92 2.92 0 1 0 2.39 2.88V2h2.8a4.8 4.8 0 0 0 3.77 4.69Z"/></svg></a>
+      <a class="social-btn" href="https://youtube.com/channel/UC2OUHfGPCu87pEEWit9KPLA" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M23.5 6.2a3 3 0 0 0-2.11-2.12C19.49 3.5 12 3.5 12 3.5s-7.49 0-9.39.58A3 3 0 0 0 .5 6.2 31.26 31.26 0 0 0 0 12a31.26 31.26 0 0 0 .5 5.8 3 3 0 0 0 2.11 2.12C4.51 20.5 12 20.5 12 20.5s7.49 0 9.39-.58a3 3 0 0 0 2.11-2.12A31.26 31.26 0 0 0 24 12a31.26 31.26 0 0 0-.5-5.8ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z"/></svg></a>
+      <a class="social-btn" href="https://ru.tradingview.com/u/PersonalConcentrat/" target="_blank" rel="noopener" aria-label="TradingView"><svg viewBox="0 0 48 48" aria-hidden="true"><polygon fill="currentColor" points="4.5 14.453 4.5 22.273 11.865 22.273 11.865 33.547 19.685 33.547 19.685 14.453"/><polygon fill="currentColor" points="26.202 33.547 34.326 14.453 43.5 14.453 35.376 33.547"/><circle fill="currentColor" cx="25.84" cy="18.36" r="3.91"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+<!-- ===================== PRICING ===================== -->
+<div class="page" id="page-pricing">
+
+<section class="section">
+  <div class="container">
+    <div class="section-shell">
+      <div class="section-header">
+        <div class="section-eyebrow"><span class="eb-dot"></span>Доступ</div>
+        <div class="section-title">Выберите свой <em>уровень</em></div>
+        <div class="section-sub">Без подписок и автосписаний. Один шаг — и доступ остаётся, пока существует сам проект.</div>
+      </div>
+      <div class="plans-grid">
+        <div class="plan-card">
+          <div class="plan-name">Base</div>
+          <div class="plan-tagline">Войти в круг, посмотреть, как мы работаем</div>
+          <div class="plan-price">$79 <span>USD</span></div>
+          <div class="plan-period">Без подписок · Доступ навсегда</div>
+          <div class="plan-divider"></div>
+          <div class="plan-feature yes"><span class="feat-icon">✓</span>Приватное комьюнити</div>
+          <div class="plan-feature yes"><span class="feat-icon">✓</span>Архив прошлых обзоров</div>
+          <div class="plan-feature no"><span class="feat-icon">—</span>Еженедельные отчёты</div>
+          <div class="plan-feature no"><span class="feat-icon">—</span>Разборы проектов</div>
+          <div class="plan-feature no"><span class="feat-icon">—</span>Расширенные отчёты</div>
+          <div class="plan-feature no"><span class="feat-icon">—</span>Персональная стратегия</div>
+          <a class="plan-btn plan-btn-outline" href="https://t.me/PersonalConcentrate?start=site_base" target="_blank" rel="noopener" data-cta="plan_base">Получить доступ</a>
+        </div>
+        <div class="plan-card featured">
+          <div class="plan-badge">★ Лучший выбор</div>
+          <div class="plan-name">Pro</div>
+          <div class="plan-tagline">Регулярная аналитика для самостоятельных решений</div>
+          <div class="plan-price">$149 <span>USD</span></div>
+          <div class="plan-period">Без подписок · Доступ навсегда · ≈ $0.41/день первый год</div>
+          <div class="plan-divider"></div>
+          <div class="plan-feature yes"><span class="feat-icon">✓</span>Приватное комьюнити</div>
+          <div class="plan-feature yes"><span class="feat-icon">✓</span>Архив прошлых обзоров</div>
+          <div class="plan-feature yes"><span class="feat-icon">✓</span>Еженедельные отчёты по рынку</div>
+          <div class="plan-feature yes"><span class="feat-icon">✓</span>Разборы проектов с ончейн-логикой</div>
+          <div class="plan-feature no"><span class="feat-icon">—</span>Расширенные отчёты</div>
+          <div class="plan-feature no"><span class="feat-icon">—</span>Персональная стратегия</div>
+          <a class="plan-btn plan-btn-gold" href="https://t.me/PersonalConcentrate?start=site_pro" target="_blank" rel="noopener" data-cta="plan_pro">Получить Pro →</a>
+        </div>
+        <div class="plan-card">
+          <div class="plan-badge plan-badge-secondary">Максимум</div>
+          <div class="plan-name">Elite</div>
+          <div class="plan-tagline">Глубокая работа с капиталом и персональный контур</div>
+          <div class="plan-price">$279 <span>USD</span></div>
+          <div class="plan-period">Без подписок · Доступ навсегда</div>
+          <div class="plan-divider"></div>
+          <div class="plan-feature yes"><span class="feat-icon">✓</span>Всё из тарифа Pro</div>
+          <div class="plan-feature yes"><span class="feat-icon">✓</span>Ежемесячные расширенные отчёты</div>
+          <div class="plan-feature yes"><span class="feat-icon">✓</span>Персональная стратегия портфеля</div>
+          <div class="plan-feature yes"><span class="feat-icon">✓</span>Приоритетный отклик в Telegram</div>
+          <div class="plan-feature yes"><span class="feat-icon">✓</span>Закрытые сессии Q&amp;A с автором</div>
+          <a class="plan-btn plan-btn-outline" href="https://t.me/PersonalConcentrate?start=site_elite" target="_blank" rel="noopener" data-cta="plan_elite">Получить Elite</a>
+        </div>
+      </div>
+
+      <div class="edu-card">
+        <div class="edu-left">
+          <div class="edu-tag">Обучение</div>
+          <div class="edu-title">Ончейн-анализ с нуля</div>
+          <div class="edu-desc">Та самая рамка, по которой принимались решения по ZEC, BTC, ETH и DASH. Ключевые ончейн-метрики, чтение сигналов капитала, оценка фундаментала и системный подход к риску — чтобы вы могли строить собственный процесс, а не повторять чужие сделки. <em style="color:var(--gold-2);font-style:normal">Без обещаний доходности.</em></div>
+        </div>
+        <div class="edu-right">
+          <div class="edu-price">$499</div>
+          <div class="edu-price-label">Без подписок · Доступ навсегда</div>
+          <a class="btn-primary" href="https://t.me/PersonalConcentrate?start=site_edu" target="_blank" rel="noopener" data-cta="edu_course">Записаться →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-label="Как это работает">
+  <div class="container">
+    <div class="section-shell">
+      <div class="section-header">
+        <div class="section-eyebrow"><span class="eb-dot"></span>Что дальше</div>
+        <div class="section-title">Как это работает</div>
+        <div class="section-sub">Никакой бюрократии. Доступ открывается вручную — обычно в тот же день в рабочее время.</div>
+      </div>
+      <div class="how-grid">
+        <div class="how-step"><div class="how-num">01</div><div class="how-title">Заявка в Telegram</div><div class="how-desc">Выбираете уровень, обсуждаете удобный способ оплаты. Подтверждение приходит в течение нескольких часов.</div></div>
+        <div class="how-step"><div class="how-num">02</div><div class="how-title">Доступ в приватный канал</div><div class="how-desc">Получаете персональную ссылку-приглашение в закрытое сообщество и архив прошлых разборов.</div></div>
+        <div class="how-step"><div class="how-num">03</div><div class="how-title">Регулярные материалы</div><div class="how-desc">Дальше — обзоры рынка, разборы проектов и реальные позиции на выбранном уровне доступа.</div></div>
+      </div>
+      <div class="guarantee-card">
+        <div class="guarantee-icon">∞</div>
+        <div>
+          <div class="guarantee-title">Доступ навсегда — что это значит</div>
+          <div class="guarantee-text">Один шаг — доступ остаётся навсегда. Никаких автосписаний, подписок или доплат за продление. Доступ сохраняется, пока существует сам проект Personal Concentrate. Возвраты не предусмотрены: вы получаете доступ к закрытой информации, которую невозможно «вернуть» — поэтому изучите все открытые материалы и задайте вопросы <em>прежде</em>, чем присоединиться.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-label="Частые вопросы">
+  <div class="container">
+    <div class="section-shell">
+      <div class="section-header">
+        <div class="section-eyebrow"><span class="eb-dot"></span>FAQ</div>
+        <div class="section-title">Частые вопросы</div>
+        <div class="section-sub">Ответы на типичные вопросы. Если ответа нет — напишите в Telegram.</div>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item"><summary class="faq-q">Это сигналы? Вы скажете, что и когда покупать?<span class="faq-toggle">+</span></summary><div class="faq-a">Нет «сигналов» в формате «купи здесь — продай там». Мы публикуем разборы рынка, методологию и собственные позиции с прозрачной логикой. На уровне Elite доступны персональные стратегии, но окончательное решение и риск всегда остаются на стороне участника.</div></details>
+        <details class="faq-item"><summary class="faq-q">Почему автор анонимен? Можно ли вам доверять?<span class="faq-toggle">+</span></summary><div class="faq-a">Анонимность в крипто — стандартная практика, защищающая автора и его капитал. Доверие строится не на паспорте, а на проверяемых данных: публичный профиль на TradingView, открытый YouTube, реальный Telegram, история сделок с датами. Мы предлагаем сначала проверить эти источники — и только потом принимать решение о доступе.</div></details>
+        <details class="faq-item"><summary class="faq-q">Какие способы оплаты доступны?<span class="faq-toggle">+</span></summary><div class="faq-a">Принимаем USDT (TRC-20, ERC-20), BTC и стандартные банковские способы — детали уточняются в Telegram при оформлении доступа. После подтверждения доступ открывается, как правило, в течение нескольких часов.</div></details>
+        <details class="faq-item"><summary class="faq-q">Есть ли возврат, если материалы не подойдут?<span class="faq-toggle">+</span></summary><div class="faq-a">Возврат не предусмотрен: вы получаете доступ к закрытой информации, который невозможно «вернуть». Поэтому мы намеренно держим открытыми бесплатные материалы (YouTube, публичные посты, TradingView), чтобы вы могли оценить подачу и методологию <em>прежде</em>, чем присоединиться.</div></details>
+        <details class="faq-item"><summary class="faq-q">Подходит ли это новичку?<span class="faq-toggle">+</span></summary><div class="faq-a">Если вы только начали — посмотрите уровень «Обучение». Уровни Base/Pro/Elite предполагают, что вы уже понимаете базу: что такое биржа, кошелёк, спот, ончейн. Мы не учим открывать счёт — мы делимся методом принятия инвестиционных решений.</div></details>
+        <details class="faq-item"><summary class="faq-q">В чём разница между уровнями Base, Pro и Elite?<span class="faq-toggle">+</span></summary><div class="faq-a">Base — доступ к приватному комьюнити и общему чату. Pro добавляет еженедельные обзоры рынка и разборы проектов. Elite — всё из Pro плюс ежемесячные расширенные отчёты и персональная стратегия. Полная сравнительная таблица — в карточках выше.</div></details>
+        <details class="faq-item"><summary class="faq-q">Гарантируете ли вы прибыль?<span class="faq-toggle">+</span></summary><div class="faq-a">Нет, и никто в индустрии этого честно не делает. Криптовалюта — высоковолатильный актив с риском полной потери капитала. Прошлые результаты по ZEC, BTC, ETH и DASH — это не обещание будущей доходности, а пример работы методологии. Инвестируйте только средства, потерю которых вы можете себе позволить.</div></details>
+      </div>
+
+      <div class="risk-box">
+        <div class="risk-head"><div class="risk-icon">!</div><div class="risk-title">Риск-дисклеймер</div></div>
+        <ul class="risk-list">
+          <li>Все материалы носят образовательно-информационный характер.</li>
+          <li>Прошлые результаты не гарантируют будущей доходности. Любые исторические цифры на сайте — это иллюстрация подхода, а не обещание.</li>
+          <li>Криптовалютный рынок высоковолатилен. Возможна полная потеря вложенных средств.</li>
+          <li>Принимая решение об инвестициях, вы действуете самостоятельно и на свой риск. Personal Concentrate не является лицензированным инвестиционным консультантом.</li>
+          <li>Перед использованием любых стратегий проконсультируйтесь с независимым финансовым специалистом, если это требуется законодательством вашей юрисдикции.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="disclaimer">Прошлые результаты не гарантируют будущей доходности. Информация носит образовательный характер. Криптовалютный рынок несёт высокие риски.</div>
+
+<footer>
+  <div class="footer-panel">
+    <div>
+      <div class="footer-brand"><img class="logo-mark" style="width:26px;height:26px" src="assets/sk-logo.png" alt="СК" loading="lazy" decoding="async" width="26" height="26">Personal Concentrate</div>
+      <div class="footer-desc"><a class="footer-mail" href="mailto:personal.concentrate@gmail.com">personal.concentrate@gmail.com</a></div>
+    </div>
+    <div class="footer-links"><a href="/" data-route="home">Главная</a><a href="/projects" data-route="projects">Проекты</a><a href="/about" data-route="about">О нас</a><a href="/pricing" data-route="pricing">Доступ</a></div>
+    <div class="footer-socials">
+      <a class="social-btn" href="https://t.me/PersonalConcentrate" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M23.11 4.49C23.43 2.94 21.91 1.66 20.43 2.23L2.34 9.22C.69 9.85.62 12.16 2.23 12.9l3.94 1.81 1.87 6.56c.1.34.37.6.71.69.34.09.71-.01.96-.26l2.89-2.89 4.04 3.03c1.17.88 2.86.24 3.16-1.2L23.11 4.49Z"/></svg></a>
+      <a class="social-btn" href="https://www.tiktok.com/@personalconcentrat" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M19.59 6.69a4.79 4.79 0 0 1-3.77-1.88v8.4a5.72 5.72 0 1 1-5.72-5.72c.18 0 .35.01.53.02v2.82a2.92 2.92 0 1 0 2.39 2.88V2h2.8a4.8 4.8 0 0 0 3.77 4.69Z"/></svg></a>
+      <a class="social-btn" href="https://youtube.com/channel/UC2OUHfGPCu87pEEWit9KPLA" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M23.5 6.2a3 3 0 0 0-2.11-2.12C19.49 3.5 12 3.5 12 3.5s-7.49 0-9.39.58A3 3 0 0 0 .5 6.2 31.26 31.26 0 0 0 0 12a31.26 31.26 0 0 0 .5 5.8 3 3 0 0 0 2.11 2.12C4.51 20.5 12 20.5 12 20.5s7.49 0 9.39-.58a3 3 0 0 0 2.11-2.12A31.26 31.26 0 0 0 24 12a31.26 31.26 0 0 0-.5-5.8ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z"/></svg></a>
+      <a class="social-btn" href="https://ru.tradingview.com/u/PersonalConcentrat/" target="_blank" rel="noopener" aria-label="TradingView"><svg viewBox="0 0 48 48" aria-hidden="true"><polygon fill="currentColor" points="4.5 14.453 4.5 22.273 11.865 22.273 11.865 33.547 19.685 33.547 19.685 14.453"/><polygon fill="currentColor" points="26.202 33.547 34.326 14.453 43.5 14.453 35.376 33.547"/><circle fill="currentColor" cx="25.84" cy="18.36" r="3.91"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+</div>
+
+<script>
+/* ===== Router (History API + hash fallback) ===== */
+var ROUTES={home:{path:'/',title:'Personal Concentrate — Ончейн-аналитика для дисциплинированного капитала'},
+            projects:{path:'/projects',title:'Кейсы и сделки · Personal Concentrate'},
+            about:{path:'/about',title:'О подходе · Personal Concentrate'},
+            pricing:{path:'/pricing',title:'Доступ и тарифы · Personal Concentrate'}};
+function setActiveNav(id){
+  var ls=document.querySelectorAll('.nav-links a, .nav-cta');
+  for(var i=0;i<ls.length;i++){
+    var r=ls[i].getAttribute('data-route');
+    ls[i].classList.toggle('active', r===id);
+  }
+}
+function renderPage(id,opts){
+  if(!ROUTES[id])id='home';
+  var ps=document.querySelectorAll('.page');
+  for(var i=0;i<ps.length;i++)ps[i].classList.remove('active');
+  var t=document.getElementById('page-'+id);
+  if(t)t.classList.add('active');
+  setActiveNav(id);
+  try{document.title=ROUTES[id].title}catch(e){}
+  /* Close mobile menu after nav */
+  var nav=document.getElementById('primary-nav');
+  if(nav)nav.classList.remove('open');
+  var b=document.querySelector('.nav-burger');
+  if(b)b.setAttribute('aria-expanded','false');
+  if(!opts||!opts.noScroll){
+    try{window.scrollTo({top:0,behavior:'smooth'})}catch(e){window.scrollTo(0,0)}
+  }
+}
+function routeFromLocation(){
+  var p=(location.pathname||'/').replace(/\/+$/,'')||'/';
+  var h=(location.hash||'').replace(/^#\/?/,'');
+  if(h && ROUTES[h])return h;
+  for(var k in ROUTES){if(ROUTES[k].path===p)return k}
+  return 'home';
+}
+window.showPage=function(id,opts){
+  if(!ROUTES[id])id='home';
+  try{
+    var p=ROUTES[id].path;
+    if(location.pathname!==p && history && history.pushState){
+      history.pushState({page:id},'',p);
+    } else if(!history.pushState){
+      location.hash='#/'+id;
+    }
+  }catch(e){}
+  renderPage(id,opts);
+  return false;
+};
+document.addEventListener('click',function(e){
+  var a=e.target.closest && e.target.closest('a[data-route], button[data-route], .nav-cta[data-route]');
+  if(!a)return;
+  if(e.metaKey||e.ctrlKey||e.shiftKey||e.button===1)return;
+  var id=a.getAttribute('data-route');
+  if(!id||!ROUTES[id])return;
+  e.preventDefault();
+  window.showPage(id);
+});
+window.addEventListener('popstate',function(){renderPage(routeFromLocation(),{noScroll:true})});
+window.addEventListener('hashchange',function(){renderPage(routeFromLocation(),{noScroll:true})});
+/* Initial render */
+try{renderPage(routeFromLocation(),{noScroll:true})}catch(e){}
+
+(function(){
+  var ua=navigator.userAgent||'';
+  var isFirefox=/Firefox/.test(ua)&&!/Edg/.test(ua);
+  var isMobile=/Android|iPhone|iPad|iPod|Mobile/i.test(ua)||window.innerWidth<820||(navigator.maxTouchPoints>1&&window.innerWidth<1100);
+  var dm=navigator.deviceMemory!=null?navigator.deviceMemory:8;
+  var hc=navigator.hardwareConcurrency!=null?navigator.hardwareConcurrency:8;
+  var isLowEnd=dm<6||hc<4||(isMobile&&(dm<8||hc<6));
+  var reduceMotion=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var html=document.documentElement;
+  if(isFirefox)html.classList.add('pc-firefox');
+  if(isMobile)html.classList.add('pc-mobile');
+  if(isLowEnd)html.classList.add('pc-perf-low');
+
+  function ready(fn){
+    if(document.readyState!=='loading')fn();
+    else document.addEventListener('DOMContentLoaded',fn);
+  }
+
+  ready(function(){
+    /* ===== CTA tracking (dataLayer-friendly, ready for GA4 / Yandex Metrica) ===== */
+    try{
+      window.dataLayer=window.dataLayer||[];
+      document.addEventListener('click',function(e){
+        var el=e.target&&e.target.closest&&e.target.closest('[data-cta]');
+        if(!el)return;
+        var name=el.getAttribute('data-cta');
+        try{window.dataLayer.push({event:'cta_click',cta:name,href:el.href||null,page:location.pathname})}catch(_){}
+        if(window.gtag){try{gtag('event','cta_click',{cta_name:name})}catch(_){}}
+        if(window.ym){try{ym(0,'reachGoal','cta_'+name)}catch(_){}}
+      },{passive:true});
+    }catch(e){}
+
+    /* ===== Burger menu ===== */
+    try{
+      var burger=document.querySelector('.nav-burger');
+      var navLinks=document.getElementById('primary-nav');
+      if(burger&&navLinks){
+        burger.addEventListener('click',function(){
+          var open=navLinks.classList.toggle('open');
+          burger.setAttribute('aria-expanded',open?'true':'false');
+        });
+        document.addEventListener('click',function(e){
+          if(!navLinks.classList.contains('open'))return;
+          if(navLinks.contains(e.target)||burger.contains(e.target))return;
+          navLinks.classList.remove('open');
+          burger.setAttribute('aria-expanded','false');
+        });
+        document.addEventListener('keydown',function(e){
+          if(e.key==='Escape'&&navLinks.classList.contains('open')){
+            navLinks.classList.remove('open');
+            burger.setAttribute('aria-expanded','false');
+            burger.focus();
+          }
+        });
+      }
+    }catch(e){}
+
+    try{
+      var sp=document.createElement('div');
+      sp.className='pc-scroll-progress';
+      sp.setAttribute('aria-hidden','true');
+      document.body.appendChild(sp);
+      var t=false;
+      var topbar=document.querySelector('.topbar');
+      function up(){
+        t=false;
+        var h=document.documentElement;
+        var tot=h.scrollHeight-h.clientHeight;
+        var p=tot>0?(window.scrollY/tot)*100:0;
+        sp.style.width=Math.min(100,Math.max(0,p))+'%';
+        html.style.setProperty('--pc-scroll',window.scrollY);
+        if(topbar)topbar.classList.toggle('scrolled',window.scrollY>16);
+      }
+      window.addEventListener('scroll',function(){
+        if(!t){window.requestAnimationFrame(up);t=true}
+      },{passive:true});
+      up();
+    }catch(e){}
+
+    if(!isMobile&&!isLowEnd&&!isFirefox&&!reduceMotion){
+      try{
+        if(!document.querySelector('.pc-orbs-layer')){
+          var l=document.createElement('div');
+          l.className='pc-orbs-layer';
+          l.setAttribute('aria-hidden','true');
+          for(var i=1;i<=10;i++){
+            var o=document.createElement('div');
+            o.className='pc-orb pc-orb-'+i;
+            l.appendChild(o);
+          }
+          document.body.appendChild(l);
+        }
+      }catch(e){}
+    }
+
+    try{
+      var ts=document.querySelector('#page-home .trust-strip');
+      if(ts&&!document.querySelector('.pc-marquee')&&!isMobile&&!isLowEnd){
+        var items=[
+          {s:'+2573%',t:'ZEC от $23'},{s:'+725%',t:'BTC от $16,665'},
+          {s:'+87%',t:'ETH в портфеле'},{s:'+74%',t:'Портфель 2025'},
+          {s:'4 года',t:'на крипторынке'},{s:'Открыто',t:'на TradingView'},
+          {s:'Без подписок',t:'доступ навсегда'},{s:'Без сигналов',t:'только методология'}
+        ];
+        var all=items.concat(items);
+        var m=document.createElement('section');
+        m.className='pc-marquee';
+        m.setAttribute('aria-hidden','true');
+        var tr=document.createElement('div');
+        tr.className='pc-marquee-track';
+        all.forEach(function(it){
+          var sp=document.createElement('span');
+          sp.className='pc-marquee-item';
+          sp.innerHTML='<span class="pc-marquee-dot"></span><span class="pc-marquee-strong">'+it.s+'</span>'+it.t;
+          tr.appendChild(sp);
+        });
+        m.appendChild(tr);
+        if(ts.parentNode)ts.parentNode.insertBefore(m,ts.nextSibling);
+      }
+    }catch(e){}
+
+    function pn(text){
+      var m=text.match(/-?\d[\d\s,.]*/);
+      if(!m)return null;
+      var c=m[0].replace(/\s/g,'').replace(/,/g,'').replace(/\.$/,'');
+      var n=parseFloat(c);
+      return isNaN(n)?null:n;
+    }
+    function fn(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,' ')}
+    function ac(el,target,duration){
+      var s=performance.now();
+      var pre=el.dataset.prefix||'',suf=el.dataset.suffix||'';
+      function step(t){
+        var p=Math.min(1,(t-s)/duration);
+        var e=1-Math.pow(1-p,3);
+        el.textContent=pre+fn(target*e)+suf;
+        if(p<1)window.requestAnimationFrame(step);
+        else el.textContent=pre+fn(target)+suf;
+      }
+      window.requestAnimationFrame(step);
+    }
+    try{
+      var cs=document.querySelectorAll('.hero-stat-num,.about-stat-val,.sum-val,.proj-pct');
+      cs.forEach(function(el){
+        var or=el.textContent.trim();
+        var num=pn(or);
+        if(num===null)return;
+        var pre=or.match(/^([^\d-]*)/);
+        var tail=or.match(/([^\d\s,.]+)\s*$/);
+        el.dataset.target=num;
+        el.dataset.prefix=pre?pre[1]:'';
+        el.dataset.suffix=tail?tail[1]:'';
+      });
+      if('IntersectionObserver' in window&&!reduceMotion&&!isMobile&&!isLowEnd){
+        cs.forEach(function(el){
+          if(!el.dataset.target)return;
+          el.textContent=(el.dataset.prefix||'')+'0'+(el.dataset.suffix||'');
+        });
+        var io=new IntersectionObserver(function(es){
+          es.forEach(function(e){
+            if(!e.isIntersecting)return;
+            var el=e.target;
+            if(el.dataset.counted==='yes')return;
+            ac(el,parseFloat(el.dataset.target),1500);
+            el.dataset.counted='yes';
+            io.unobserve(el);
+          });
+        },{threshold:0.35});
+        cs.forEach(function(el){if(el.dataset.target)io.observe(el)});
+      }
+    }catch(e){}
+
+    try{
+      var bars=document.querySelectorAll('.about-stat-bar-fill');
+      if(bars.length&&'IntersectionObserver' in window&&!reduceMotion){
+        bars.forEach(function(b){
+          var w=b.style.width||'0%';
+          b.dataset.target=w;
+          b.style.width='0%';
+        });
+        var ib=new IntersectionObserver(function(es){
+          es.forEach(function(e){
+            if(!e.isIntersecting)return;
+            e.target.style.width=e.target.dataset.target;
+            ib.unobserve(e.target);
+          });
+        },{threshold:0.25});
+        bars.forEach(function(b){ib.observe(b)});
+      }
+    }catch(e){}
+
+    try{
+      if('IntersectionObserver' in window&&!reduceMotion&&!isMobile&&!isLowEnd){
+        var rt=document.querySelectorAll('.method-card,.plan-card,.anti-col,.proof-card,.how-step,.faq-item,.project-row,.guarantee-card,.risk-box,.summary-row,.edu-card,.about-stat-card,.trust-cell,.voice-card,.report-card,.honest-card');
+        rt.forEach(function(el,i){
+          el.classList.add('pc-reveal');
+          el.classList.add('pc-reveal-delay-'+((i%3)+1));
+        });
+        var ir=new IntersectionObserver(function(es){
+          es.forEach(function(e){
+            if(e.isIntersecting){
+              e.target.classList.add('in');
+              ir.unobserve(e.target);
+            }
+          });
+        },{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+        rt.forEach(function(t){ir.observe(t)});
+      }
+    }catch(e){}
+
+    try{
+      document.querySelectorAll('.project-row').forEach(function(row){
+        row.setAttribute('role','button');
+        row.setAttribute('tabindex','0');
+        row.setAttribute('aria-expanded',row.classList.contains('open')?'true':'false');
+        row.addEventListener('keydown',function(e){
+          if(e.key==='Enter'||e.key===' '){
+            e.preventDefault();
+            row.classList.toggle('open');
+            row.setAttribute('aria-expanded',row.classList.contains('open')?'true':'false');
+          }
+        });
+        row.addEventListener('click',function(){
+          row.setAttribute('aria-expanded',row.classList.contains('open')?'true':'false');
+        });
+      });
+    }catch(e){}
+
+    try{
+      var calcAmount=document.getElementById('calc-amount');
+      var calcResults=document.getElementById('calc-results');
+      var calcTotal=document.getElementById('calc-total');
+      var calcPresets=document.querySelectorAll('.calc-preset');
+      if(calcAmount&&calcResults&&calcTotal){
+        var fmtUsd=function(n){
+          if(n>=1e6)return '$'+(n/1e6).toFixed(2).replace(/\.0+$/,'')+'M';
+          return '$'+Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g,' ');
+        };
+        var maxPct=2573;
+        var lastVal=null;
+        function calcRender(animate){
+          var amt=parseFloat(calcAmount.value)||0;
+          if(amt<0)amt=0;if(amt>1e7)amt=1e7;
+          var rows=calcResults.querySelectorAll('.calc-row');
+          var total=0;
+          rows.forEach(function(r){
+            var pct=parseFloat(r.dataset.pct)||0;
+            var profit=amt*(pct/100);
+            total+=profit;
+            var valEl=r.querySelector('.calc-row-val');
+            var barEl=r.querySelector('.calc-row-bar-fill');
+            if(valEl){
+              if(animate&&lastVal!==null){
+                var start=performance.now();
+                var from=parseFloat(valEl.dataset.cur||'0');
+                var to=profit;
+                (function(el,from,to,start){
+                  function step(t){
+                    var p=Math.min(1,(t-start)/420);
+                    var e=1-Math.pow(1-p,3);
+                    var cur=from+(to-from)*e;
+                    el.textContent='+'+fmtUsd(cur);
+                    el.dataset.cur=cur;
+                    if(p<1)requestAnimationFrame(step);
+                  }
+                  requestAnimationFrame(step);
+                })(valEl,from,to,start);
+              } else {
+                valEl.textContent='+'+fmtUsd(profit);
+                valEl.dataset.cur=profit;
+              }
+            }
+            if(barEl){
+              var w=Math.min(100,(pct/maxPct)*100);
+              barEl.style.setProperty('--w',w+'%');
+            }
+          });
+          calcTotal.textContent='+'+fmtUsd(total);
+          lastVal=amt;
+          calcPresets.forEach(function(p){
+            p.classList.toggle('active',parseFloat(p.dataset.val)===amt);
+          });
+        }
+        calcAmount.addEventListener('input',function(){calcRender(false)});
+        calcPresets.forEach(function(p){
+          p.addEventListener('click',function(){
+            calcAmount.value=p.dataset.val;
+            calcRender(true);
+          });
+        });
+        if('IntersectionObserver' in window){
+          var calcIo=new IntersectionObserver(function(es){
+            es.forEach(function(e){
+              if(e.isIntersecting){
+                calcRender(true);
+                calcIo.unobserve(e.target);
+              }
+            });
+          },{threshold:0.2});
+          calcIo.observe(document.querySelector('.calc'));
+        } else {
+          calcRender(false);
+        }
+      }
+    }catch(e){}
+
+    document.addEventListener('visibilitychange',function(){
+      html.classList.toggle('pc-tab-hidden',document.hidden);
+    });
+
+    setTimeout(function(){
+      try{
+        document.querySelectorAll('.pc-reveal:not(.in)').forEach(function(el){el.classList.add('in')});
+      }catch(e){}
+    },3000);
+  });
+})();
+</script>
+</body>
+</html>
